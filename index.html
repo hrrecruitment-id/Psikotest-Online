@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Assessment Rekrutmen - HR Psikotes</title>
+
+  <!-- CDNs for styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- App Header / Navbar -->
+  <nav class="navbar main-navbar glass-effect sticky-top">
+    <div class="container">
+      <a class="navbar-brand logo-text" href="index.html">
+        <span class="logo-accent"><i class="bi bi-rocket-takeoff-fill"></i> HR</span> RECRUITMENT
+      </a>
+
+      <div class="d-flex align-items-center gap-3">
+        <!-- Dark Mode Toggle Switch -->
+        <div class="theme-switch-wrapper">
+          <label class="theme-switch" for="darkModeToggle">
+            <input type="checkbox" id="darkModeToggle" />
+            <div class="slider">
+              <div class="slider-icons">
+                <i class="bi bi-sun-fill"></i>
+                <i class="bi bi-moon-stars-fill"></i>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <!-- Admin Login Button -->
+        <a href="admin/login.html" class="btn btn-sm btn-outline-primary fw-600 rounded-3">
+          <i class="bi bi-person-lock"></i> HR Login
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Hero Section -->
+  <main class="container my-auto py-5">
+    <div class="row align-items-center justify-content-between g-5">
+      <!-- Hero Left Text -->
+      <div class="col-lg-6" data-aos="fade-right">
+        <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill mb-3">
+          <i class="bi bi-lightning-charge-fill"></i> Talent Portal Assessment
+        </span>
+        <h1 class="display-4 fw-800 mb-3" style="line-height: 1.2;">
+          Temukan Potensi Terbaikmu Bersama Tim <span class="logo-accent">Kami</span>
+        </h1>
+        <p class="text-secondary fs-5 mb-4">
+          Selamat datang di Portal Tes Psikotes Online. Tes ini dirancang untuk menilai kompetensi kognitif,
+          karakteristik kerja, kreativitas, serta pemecahan masalah Anda untuk kesesuaian posisi di tim kami yang
+          dinamis.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="biodata.html" class="btn btn-primary-modern px-4 py-3 btn-lg">
+            Mulai Tes Sekarang <i class="bi bi-arrow-right-short ms-1 font-16"></i>
+          </a>
+          <a href="#assessment-rules" class="btn btn-secondary-modern px-4 py-3 btn-lg">
+            Pelajari Petunjuk
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Right Image/Graphic Card -->
+      <div class="col-lg-5" data-aos="fade-left">
+        <div class="card-modern glass-effect p-4 border-2">
+          <div class="text-center py-3">
+            <div
+              class="bg-primary text-white d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+              style="width: 80px; height: 80px; font-size: 2.25rem;">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h3 class="fw-700">Penilaian Adil & Objektif</h3>
+            <p class="text-secondary small px-3">
+              Tes ini mengukur 5 pilar keahlian utama tanpa bias subjektif untuk memberikan kesempatan yang sama kepada
+              seluruh kandidat hebat.
+            </p>
+          </div>
+          <hr class="my-3 text-muted">
+          <div class="row text-center g-2 font-13">
+            <div class="col-4">
+              <div class="p-2 border rounded-3 bg-light-subtle">
+                <strong class="d-block color-primary fs-5">50</strong>
+                <span class="text-secondary small">Total Soal</span>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="p-2 border rounded-3 bg-light-subtle">
+                <strong class="d-block color-primary fs-5">60</strong>
+                <span class="text-secondary small">Menit Durasi</span>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="p-2 border rounded-3 bg-light-subtle">
+                <strong class="d-block color-primary fs-5">100%</strong>
+                <span class="text-secondary small">Daring Digital</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rules / Specifications Section -->
+    <section id="assessment-rules" class="mt-5 pt-5">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-700">Materi Ujian & Pembagian Kategori</h2>
+        <p class="text-secondary">Ujian ini mencakup 5 bidang evaluasi utama untuk mengukur kompetensi multi-dimensi</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Kepribadian -->
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card-modern h-100 p-4">
+            <div class="text-primary fs-2 mb-3"><i class="bi bi-emoji-smile"></i></div>
+            <h4 class="fw-600">1. Kepribadian</h4>
+            <p class="text-secondary small mb-0">Menilai kecocokan budaya kerja kami, resiliensi stres, cara kolaborasi
+              tim, dan gaya komunikasi interpersonal Anda.</p>
+          </div>
+        </div>
+        <!-- Logika -->
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card-modern h-100 p-4">
+            <div class="text-primary fs-2 mb-3"><i class="bi bi-brain"></i></div>
+            <h4 class="fw-600">2. Logika</h4>
+            <p class="text-secondary small mb-0">Mengukur penalaran deduktif-induktif, analogi spasial, serta kemampuan
+              penyimpulan logis yang presisi.</p>
+          </div>
+        </div>
+        <!-- Copywriting -->
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card-modern h-100 p-4">
+            <div class="text-primary fs-2 mb-3"><i class="bi bi-feather"></i></div>
+            <h4 class="fw-600">3. Copywriting</h4>
+            <p class="text-secondary small mb-0">Mengevaluasi keahlian berbahasa, penyusunan headline promosi, struktur
+              kalimat persuasif, dan pemahaman audiens target.</p>
+          </div>
+        </div>
+        <!-- Kreativitas -->
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-inner">
+            <div class="card-modern h-100 p-4">
+              <div class="text-primary fs-2 mb-3"><i class="bi bi-lightbulb"></i></div>
+              <h4 class="fw-600">4. Kreativitas</h4>
+              <p class="text-secondary small mb-0">Menguji pemecahan masalah lateral, gagasan alternatif, inovasi
+                penyelesaian kasus rumit secara orisinal.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Analisa Data -->
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+          <div class="card-modern h-100 p-4">
+            <div class="text-primary fs-2 mb-3"><i class="bi bi-graph-up-arrow"></i></div>
+            <h4 class="fw-600">5. Analisa Data</h4>
+            <p class="text-secondary small mb-0">Mengukur pemahaman angka, persentase profit, interpretasi grafik/tren
+              penjualan, serta perhitungan dasar statistik.</p>
+          </div>
+        </div>
+        <!-- Instruksi Card -->
+        <div class="col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="card-modern h-100 p-4 bg-primary text-white">
+            <div class="fs-2 mb-3"><i class="bi bi-info-circle"></i></div>
+            <h4 class="fw-600">Aturan Penting</h4>
+            <ul class="small ps-3 mb-0" style="opacity: 0.9;">
+              <li>Durasi tes berjalan mundur selama <strong>60 Menit</strong>.</li>
+              <li>Sistem akan melakukan <strong>Auto-Submit</strong> jika waktu habis.</li>
+              <li>Gunakan koneksi internet stabil & cari lokasi yang tenang.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="mt-auto py-4 border-top bg-white text-center text-secondary small">
+    <div class="container">
+      <p class="mb-1">&copy; 2026 HR Talent Assessments. Hak Cipta Dilindungi.</p>
+      <span class="text-muted font-11">Sistem dioptimalkan untuk Desktop & Perangkat Seluler.</span>
+    </div>
+  </footer>
+
+  <!-- Script CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
+
+  <script src="js/storage.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
