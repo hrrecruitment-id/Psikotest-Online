@@ -1,0 +1,524 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================================================
+   CSS VARIABLES & DESIGN SYSTEM (Supports Light & Dark Modes)
+   ========================================================================== */
+:root {
+  --bg-primary: #F8FAFC;
+  --bg-secondary: #FFFFFF;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  
+  --accent: #2563EB;
+  --accent-hover: #1D4ED8;
+  --accent-light: rgba(37, 99, 235, 0.08);
+  
+  --card-bg: #FFFFFF;
+  --border-color: #E2E8F0;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+  
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  
+  --sidebar-width: 260px;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-light: rgba(59, 130, 246, 0.15);
+  
+  --card-bg: #1E293B;
+  --border-color: #334155;
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  
+  --glass-bg: rgba(30, 41, 59, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   BASE & RESET STYLES
+   ========================================================================== */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ==========================================================================
+   UI UTILITIES
+   ========================================================================== */
+.card-modern {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+.card-modern:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.glass-effect {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+.btn-primary-modern {
+  background-color: var(--accent);
+  border: none;
+  color: #FFFFFF !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 0 2px 4px -2px rgba(37, 99, 235, 0.2);
+  transition: all 0.2s ease;
+}
+.btn-primary-modern:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary-modern {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+.btn-secondary-modern:hover {
+  background-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   APP HEADER & COMMON LAYOUT
+   ========================================================================== */
+.main-navbar {
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  background-color: var(--bg-secondary);
+}
+
+.logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  font-size: 1.35rem;
+}
+.logo-accent {
+  color: var(--accent);
+}
+
+/* Theme Switcher Toggle */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+.theme-switch {
+  display: inline-block;
+  height: 26px;
+  position: relative;
+  width: 50px;
+}
+.theme-switch input {
+  display:none;
+}
+.slider {
+  background-color: #CBD5E1;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  border-radius: 34px;
+}
+.slider:before {
+  background-color: #fff;
+  bottom: 3px;
+  content: "";
+  height: 20px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 20px;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+input:checked + .slider {
+  background-color: var(--accent);
+}
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+.slider-icons {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 6px;
+  color: #64748B;
+  pointer-events: none;
+  font-size: 11px;
+}
+
+/* ==========================================================================
+   APP LOADER
+   ========================================================================== */
+#app-loader {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+#app-loader.active {
+  display: flex;
+}
+.loader-spinner {
+  background: var(--bg-secondary);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: scaleUp 0.3s ease;
+}
+
+/* ==========================================================================
+   PSYCHOMETRIC TEST LAYOUT (test.html)
+   ========================================================================== */
+.test-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
+}
+@media (max-width: 991px) {
+  .test-grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.question-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.question-nav-btn {
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.question-nav-btn:hover {
+  background-color: var(--accent-light);
+  border-color: var(--accent);
+}
+.question-nav-btn.answered {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+.question-nav-btn.current {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-light);
+  font-size: 1.1rem;
+}
+
+/* Option List Styling */
+.option-container {
+  margin-top: 1.25rem;
+}
+.option-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+.option-card:hover {
+  border-color: var(--accent);
+  background-color: var(--accent-light);
+}
+.option-card.selected {
+  border-color: var(--accent);
+  background-color: var(--accent-light);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.option-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1.5px solid var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  margin-right: 12px;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.option-card.selected .option-badge {
+  background-color: var(--accent);
+  color: #FFFFFF;
+  border-color: var(--accent);
+}
+
+/* Timer styles */
+.timer-card {
+  position: sticky;
+  top: 20px;
+}
+.timer-countdown {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-align: center;
+  letter-spacing: 1px;
+}
+.timer-progress-bar {
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--border-color);
+  overflow: hidden;
+  margin-top: 8px;
+}
+.timer-progress-fill {
+  height: 100%;
+  background-color: var(--accent);
+  transition: width 1s linear;
+}
+
+/* ==========================================================================
+   ADMIN LAYOUT & DASHBOARD (admin/dashboard.html)
+   ========================================================================== */
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.admin-sidebar-header {
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.admin-sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-sidebar-menu .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: var(--text-secondary);
+  border-radius: 10px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.admin-sidebar-menu .nav-link i {
+  font-size: 1.2rem;
+  margin-right: 12px;
+}
+.admin-sidebar-menu .nav-link:hover {
+  color: var(--accent);
+  background-color: var(--accent-light);
+}
+.admin-sidebar-menu .nav-link.active {
+  color: #FFFFFF !important;
+  background-color: var(--accent);
+}
+
+/* Admin Content Wrapper */
+.admin-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--bg-primary);
+  min-width: 0; /* Prevents flex children from stretching container */
+}
+
+/* Mobile Admin Toggle */
+.admin-mobile-header {
+  display: none;
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .admin-container {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    width: 100%;
+    display: none;
+  }
+  .admin-sidebar.active {
+    display: flex;
+  }
+  .admin-mobile-header {
+    display: flex;
+  }
+  .admin-content {
+    padding: 1.25rem;
+  }
+}
+
+/* Table Style Overrides under Theme */
+.table {
+  color: var(--text-primary);
+}
+.table-hover tbody tr:hover {
+  background-color: var(--accent-light);
+  color: var(--text-primary);
+}
+thead th {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-secondary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+}
+td, th {
+  border-color: var(--border-color);
+}
+
+/* ==========================================================================
+   ANIMATIONS & OVERRIDES
+   ========================================================================== */
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* SweetAlert2 Theme Adapters */
+.swal2-popup {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 16px !important;
+  font-family: 'Inter', sans-serif !important;
+}
+.swal2-title, .swal2-html-container {
+  color: var(--text-primary) !important;
+}
+.swal2-confirm {
+  background-color: var(--accent) !important;
+}
+.swal2-cancel {
+  background-color: var(--text-secondary) !important;
+}
+
+/* Print Overrides */
+@media print {
+  body {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .admin-sidebar, .main-navbar, .admin-mobile-header {
+    display: none !important;
+  }
+  .admin-content {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .card-modern {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
