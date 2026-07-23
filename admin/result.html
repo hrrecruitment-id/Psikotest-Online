@@ -85,11 +85,16 @@
 
       <!-- Top Actions Bar -->
       <div class="d-flex justify-content-between align-items-center mb-4 no-print pb-3 border-bottom">
-        <div>
-          <a href="dashboard.html" class="btn btn-sm btn-outline-secondary rounded-3 mb-2">
-            <i class="bi bi-chevron-left"></i> Kembali ke Dashboard
-          </a>
-          <h1 class="fw-800 h3 mb-1">Detail Hasil Penilaian</h1>
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-secondary d-none d-lg-inline-block btn-sidebar-toggle-desktop" onclick="AdminManager.toggleSidebarDesktop()">
+            <i class="bi bi-chevron-left" id="toggleIconDesktopResult"></i>
+          </button>
+          <div>
+            <a href="dashboard.html" class="btn btn-sm btn-outline-secondary rounded-3 mb-2">
+              <i class="bi bi-chevron-left"></i> Kembali ke Dashboard
+            </a>
+            <h1 class="fw-800 h3 mb-1">Detail Hasil Penilaian</h1>
+          </div>
         </div>
 
         <!-- Action Buttons (Print, PDF, Delete) -->
@@ -133,6 +138,9 @@
               <div class="col-sm-4 text-secondary fw-600">Domisili Kota</div>
               <div class="col-sm-8" id="resDomicile">Memuat...</div>
 
+              <div class="col-sm-4 text-secondary fw-600">Pengalaman Kerja</div>
+              <div class="col-sm-8 fw-600 text-dark-mode-override" id="resExperience">Memuat...</div>
+
               <div class="col-sm-4 text-secondary fw-600">Posisi yang Dilamar</div>
               <div class="col-sm-8 fw-700 text-primary" id="resPosition">Memuat...</div>
 
@@ -164,7 +172,7 @@
                     <td class="text-center fw-700" id="scoreLogika">0</td>
                   </tr>
                   <tr>
-                    <td class="fw-600">Copywriting</td>
+                    <td class="fw-600">Verbal</td>
                     <td class="text-center text-muted">20%</td>
                     <td class="text-center fw-700" id="scoreCopywriting">0</td>
                   </tr>
@@ -174,7 +182,7 @@
                     <td class="text-center fw-700" id="scoreKreativitas">0</td>
                   </tr>
                   <tr>
-                    <td class="fw-600">Analisa Data</td>
+                    <td class="fw-600">Numerik</td>
                     <td class="text-center text-muted">20%</td>
                     <td class="text-center fw-700" id="scoreAnalisaData">0</td>
                   </tr>

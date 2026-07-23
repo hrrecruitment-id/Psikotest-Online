@@ -45,12 +45,17 @@
 
       <ul class="admin-sidebar-menu flex-grow-1">
         <li>
-          <a href="dashboard.html" class="nav-link active">
+          <a href="dashboard.html" class="nav-link active" id="menuDashboard" onclick="AdminManager.switchTab('dashboard'); return false;">
             <i class="bi bi-grid-1x2"></i> Dashboard
           </a>
         </li>
         <li>
-          <a href="#participantsCard" class="nav-link">
+          <a href="#" class="nav-link" id="menuCandidates" onclick="AdminManager.switchTab('candidates'); return false;">
+            <i class="bi bi-person-gear"></i> Akun Peserta
+          </a>
+        </li>
+        <li>
+          <a href="#participantsCard" class="nav-link" id="menuParticipants" onclick="AdminManager.switchTab('dashboard', 'participantsCard'); return false;">
             <i class="bi bi-people"></i> Daftar Peserta
           </a>
         </li>
@@ -88,11 +93,17 @@
     <!-- Main Dashboard Content -->
     <main class="admin-content">
 
-      <!-- Topbar Header -->
+      <!-- Tab 1: Dashboard Analytics -->
+      <div id="tab-dashboard-content">
       <div class="d-flex justify-content-between align-items-center mb-4 no-print pb-3 border-bottom">
-        <div>
-          <h1 class="fw-800 h3 mb-1">Assessment Analytics</h1>
-          <p class="text-secondary small mb-0">Overview of candidate evaluations, scores, and statistics.</p>
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-secondary d-none d-lg-inline-block btn-sidebar-toggle-desktop" onclick="AdminManager.toggleSidebarDesktop()">
+            <i class="bi bi-chevron-left" id="toggleIconDesktop"></i>
+          </button>
+          <div>
+            <h1 class="fw-800 h3 mb-1">Assessment Analytics</h1>
+            <p class="text-secondary small mb-0">Overview of candidate evaluations, scores, and statistics.</p>
+          </div>
         </div>
         <div class="text-end d-none d-md-block">
           <span class="badge bg-primary-subtle text-primary fw-600 px-3 py-2 rounded-pill">
@@ -278,7 +289,155 @@
 
       </div>
 
+      </div><!-- End tab-dashboard-content -->
+
+      <!-- Tab 2: Candidate Account Management -->
+      <div id="tab-candidates-content" style="display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-4 no-print pb-3 border-bottom">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-secondary d-none d-lg-inline-block btn-sidebar-toggle-desktop" onclick="AdminManager.toggleSidebarDesktop()">
+              <i class="bi bi-chevron-left" id="toggleIconDesktopCandidates"></i>
+            </button>
+            <div>
+              <h1 class="fw-800 h3 mb-1">Manajemen Akun Peserta</h1>
+              <p class="text-secondary small mb-0">Daftarkan dan kelola akses login peserta ujian psikotes.</p>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#registerCandidateModal" onclick="AdminManager.onOpenRegisterModal()">
+              <i class="bi bi-person-plus-fill me-1"></i> Daftarkan Peserta
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid Layout for Candidates & Positions -->
+        <div class="row g-4">
+          <!-- Left: Registered Candidates Table -->
+          <div class="col-lg-8" data-aos="fade-right">
+            <div class="card-modern p-4 mb-4">
+              <h4 class="fw-700 border-bottom pb-2 mb-3 fs-5 color-primary">Daftar Akun Peserta Terdaftar</h4>
+              <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle" style="min-width: 600px;">
+                  <thead>
+                    <tr>
+                      <th style="width: 5%;">No</th>
+                      <th style="width: 25%;">Nama Lengkap</th>
+                      <th style="width: 25%;">Email (Username)</th>
+                      <th style="width: 15%;">No HP / WA</th>
+                      <th style="width: 20%;">Posisi & Pengalaman</th>
+                      <th style="width: 10%;">Password</th>
+                      <th style="width: 10%;">Status</th>
+                      <th style="width: 10%; text-align: right;">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="registeredCandidatesTableBody">
+                    <!-- Rendered dynamically via admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Vacancy Positions Manager -->
+          <div class="col-lg-4" data-aos="fade-left">
+            <div class="card-modern p-4 mb-4">
+              <h4 class="fw-700 border-bottom pb-2 mb-3 fs-5 color-primary">Manajemen Posisi Lowongan</h4>
+              
+              <!-- Add Position Form -->
+              <form id="addPositionForm" class="mb-4">
+                <label for="newPositionName" class="form-label small fw-600 text-secondary">Tambah Posisi Baru</label>
+                <div class="input-group">
+                  <input type="text" class="form-control text-dark-mode-override" id="newPositionName" required placeholder="Contoh: Frontend Engineer">
+                  <button class="btn btn-primary btn-sm" type="submit">Tambah</button>
+                </div>
+              </form>
+
+              <!-- Positions List -->
+              <div class="border rounded-3 overflow-hidden bg-light-subtle">
+                <ul class="list-group list-group-flush" id="positionsManagerList" style="max-height: 300px; overflow-y: auto;">
+                  <!-- Rendered dynamically via admin.js -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- End tab-candidates-content -->
+
     </main>
+
+  <!-- Modal Register Candidate -->
+  <div class="modal fade" id="registerCandidateModal" tabindex="-1" aria-labelledby="registerCandidateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header bg-primary text-white border-0 py-3">
+          <h5 class="modal-title fw-bold" id="registerCandidateModalLabel">
+            <i class="bi bi-person-plus-fill me-1"></i> Daftarkan Peserta Ujian
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="registerCandidateForm" class="needs-validation" novalidate>
+            <!-- Nama -->
+            <div class="mb-3">
+              <label for="regName" class="form-label fw-600">Nama Lengkap <span class="text-danger">*</span></label>
+              <input type="text" class="form-control text-dark-mode-override" id="regName" required placeholder="Contoh: Rudi Tabuti">
+              <div class="invalid-feedback">Nama lengkap wajib diisi.</div>
+            </div>
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="regEmail" class="form-label fw-600">Email (Username) <span class="text-danger">*</span></label>
+              <input type="email" class="form-control text-dark-mode-override" id="regEmail" required placeholder="name@example.com">
+              <div class="invalid-feedback">Alamat email valid wajib diisi.</div>
+            </div>
+            <!-- WhatsApp -->
+            <div class="mb-3">
+              <label for="regPhone" class="form-label fw-600">No. WhatsApp / HP <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control text-dark-mode-override" id="regPhone" required placeholder="08xxxxxxxxxx">
+              <div class="invalid-feedback">Nomor WhatsApp/HP wajib diisi.</div>
+            </div>
+            <!-- Posisi -->
+            <div class="mb-3">
+              <label for="regPosition" class="form-label fw-600">Posisi Dilamar <span class="text-danger">*</span></label>
+              <select class="form-select text-dark-mode-override" id="regPosition" required>
+                <option value="" disabled selected>Pilih posisi...</option>
+              </select>
+              <div class="invalid-feedback">Posisi wajib dipilih.</div>
+            </div>
+            <!-- Pengalaman -->
+            <div class="mb-3">
+              <label for="regExperience" class="form-label fw-600">Pengalaman Kerja <span class="text-danger">*</span></label>
+              <select class="form-select text-dark-mode-override" id="regExperience" required>
+                <option value="" disabled selected>Pilih pengalaman...</option>
+                <option value="Fresh Graduate">Fresh Graduate</option>
+                <option value="1 - 3 Tahun">1 - 3 Tahun</option>
+                <option value="3 - 5 Tahun">3 - 5 Tahun</option>
+                <option value="5 - 10 Tahun">5 - 10 Tahun</option>
+                <option value="> 10 Tahun">&gt; 10 Tahun</option>
+              </select>
+              <div class="invalid-feedback">Pengalaman kerja wajib dipilih.</div>
+            </div>
+            <!-- Password -->
+            <div class="mb-4">
+              <label for="regPassword" class="form-label fw-600">Password Akun <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input type="text" class="form-control text-dark-mode-override" id="regPassword" required placeholder="Password login">
+                <button class="btn btn-outline-secondary" type="button" onclick="AdminManager.generateRandomPassword()">
+                  <i class="bi bi-shuffle"></i> Acak
+                </button>
+              </div>
+              <div class="invalid-feedback">Password wajib diisi.</div>
+            </div>
+            
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary-modern py-2.5">
+                Daftarkan Peserta <i class="bi bi-check-circle-fill ms-1"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 
   <!-- Script CDNs -->
