@@ -113,15 +113,13 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
 
   <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
 
   <!-- Clear session variables of completed candidate -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      sessionStorage.removeItem('web_psikotes_current_candidate');
-      sessionStorage.removeItem('web_psikotes_shuffled_questions');
-      sessionStorage.removeItem('web_psikotes_candidate_answers');
-      sessionStorage.removeItem('web_psikotes_timer_end');
+      AuthManager.logoutCandidate();
     });
   </script>
 </body>

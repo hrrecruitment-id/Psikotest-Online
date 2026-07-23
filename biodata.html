@@ -90,13 +90,26 @@
               <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-briefcase"></i></span>
               <select class="form-select border-start-0 ps-0" id="posisiDilamar" required>
                 <option value="" disabled selected>Pilih posisi...</option>
-                <option value="Social Media Specialist">Social Media Specialist</option>
-                <option value="Copywriter">Copywriter</option>
-                <option value="Content Writer">Content Writer</option>
-                <option value="Data Analyst">Data Analyst</option>
-                <option value="Digital Marketer">Digital Marketer</option>
               </select>
               <div class="invalid-feedback">Pilih posisi yang ingin dilamar.</div>
+            </div>
+          </div>
+
+          <!-- Pengalaman Kerja -->
+          <div class="mb-3">
+            <label for="pengalamanKerja" class="form-label fw-600">Pengalaman Kerja <span
+                class="text-danger">*</span></label>
+            <div class="input-group">
+              <span class="input-group-text bg-light border-end-0 text-muted"><i class="bi bi-clock-history"></i></span>
+              <select class="form-select border-start-0 ps-0" id="pengalamanKerja" required>
+                <option value="" disabled selected>Pilih pengalaman kerja...</option>
+                <option value="Fresh Graduate">Fresh Graduate</option>
+                <option value="1 - 3 Tahun">1 - 3 Tahun</option>
+                <option value="3 - 5 Tahun">3 - 5 Tahun</option>
+                <option value="5 - 10 Tahun">5 - 10 Tahun</option>
+                <option value="> 10 Tahun">&gt; 10 Tahun</option>
+              </select>
+              <div class="invalid-feedback">Pilih pengalaman kerja Anda.</div>
             </div>
           </div>
 
@@ -104,14 +117,16 @@
           <div class="row g-3 mb-4">
             <!-- Pendidikan -->
             <div class="col-sm-6">
-              <label for="pendidikan" class="form-label fw-600">Pendidikan Terakhir</label>
-              <input type="text" class="form-control" id="pendidikan" placeholder="Contoh: S1 Ilmu Komunikasi">
+              <label for="pendidikan" class="form-label fw-600">Pendidikan Terakhir <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="pendidikan" required placeholder="Contoh: S1 Ilmu Komunikasi">
+              <div class="invalid-feedback">Pendidikan terakhir wajib diisi.</div>
             </div>
 
             <!-- Domisili -->
             <div class="col-sm-6">
-              <label for="domisili" class="form-label fw-600">Domisili Kota</label>
-              <input type="text" class="form-control" id="domisili" placeholder="Contoh: Jakarta">
+              <label for="domisili" class="form-label fw-600">Domisili Kota <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="domisili" required placeholder="Contoh: Jakarta">
+              <div class="invalid-feedback">Domisili kota wajib diisi.</div>
             </div>
           </div>
 
@@ -140,11 +155,18 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
 
   <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/main.js"></script>
 
   <!-- Page Specific Logic -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Prevent going back to biodata if test has started
+      if (sessionStorage.getItem('web_psikotes_test_started') === 'true') {
+        window.location.replace('test.html');
+        return;
+      }
+
       const form = document.getElementById('biodataForm');
 
       // Auto-clear active session test state in case of returning candidate
@@ -152,6 +174,36 @@
       sessionStorage.removeItem('web_psikotes_shuffled_questions');
       sessionStorage.removeItem('web_psikotes_candidate_answers');
       sessionStorage.removeItem('web_psikotes_timer_end');
+
+      // Populate positions dropdown dynamically
+      const positions = StorageManager.getPositions();
+      const selectPos = document.getElementById('posisiDilamar');
+      if (selectPos) {
+        selectPos.innerHTML = '<option value="" disabled selected>Pilih posisi...</option>';
+        positions.forEach(pos => {
+          const opt = document.createElement('option');
+          opt.value = pos;
+          opt.innerText = pos;
+          selectPos.appendChild(opt);
+        });
+      }
+
+      // Load session and pre-fill
+      const session = AuthManager.getCandidateSession();
+      if (session) {
+        document.getElementById('namaLengkap').value = session.name || '';
+        document.getElementById('emailAddress').value = session.email || '';
+        document.getElementById('noHP').value = session.phone || '';
+        document.getElementById('posisiDilamar').value = session.position || '';
+        document.getElementById('pengalamanKerja').value = session.experience || '';
+
+        // Disable pre-registered fields
+        document.getElementById('namaLengkap').readOnly = true;
+        document.getElementById('emailAddress').readOnly = true;
+        document.getElementById('noHP').readOnly = true;
+        document.getElementById('posisiDilamar').disabled = true;
+        document.getElementById('pengalamanKerja').disabled = true;
+      }
 
       form.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -165,10 +217,11 @@
         // Gather data
         const candidateData = {
           id: 'PSKT-' + new Date().toISOString().slice(0, 10).replace(/-/g, '') + '-' + Math.floor(100 + Math.random() * 900),
-          name: document.getElementById('namaLengkap').value.trim(),
-          email: document.getElementById('emailAddress').value.trim(),
-          phone: document.getElementById('noHP').value.trim(),
-          position: document.getElementById('posisiDilamar').value,
+          name: session ? session.name : document.getElementById('namaLengkap').value.trim(),
+          email: session ? session.email : document.getElementById('emailAddress').value.trim(),
+          phone: session ? session.phone : document.getElementById('noHP').value.trim(),
+          position: session ? session.position : document.getElementById('posisiDilamar').value,
+          experience: session ? session.experience : document.getElementById('pengalamanKerja').value,
           education: document.getElementById('pendidikan').value.trim(),
           domicile: document.getElementById('domisili').value.trim(),
           testDate: new Date().toISOString()
@@ -176,6 +229,7 @@
 
         // Save in sessionStorage
         sessionStorage.setItem('web_psikotes_current_candidate', JSON.stringify(candidateData));
+        sessionStorage.setItem('web_psikotes_test_started', 'true');
 
         // Show confirmation loading
         Swal.fire({

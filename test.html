@@ -132,6 +132,7 @@
 
   <!-- App JS modules -->
   <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
   <script src="js/timer.js"></script>
   <script src="js/question.js"></script>
   <script src="js/score.js"></script>
@@ -363,10 +364,13 @@
       Loader.show();
 
       // Recalculate candidate evaluation
-      const evaluation = ScoreManager.calculate(candidateAnswers, questions);
+      const evaluation = ScoreManager.calculate(candidateAnswers, questions, candidate.experience);
 
       // Save participant details to local storage
       StorageManager.saveParticipant(candidate);
+
+      // Update candidate status to completed in registered table
+      StorageManager.updateCandidateStatus(candidate.email, 'completed');
 
       // Save evaluation scores
       const resultRecord = {
@@ -395,9 +399,9 @@
       switch (cat) {
         case 'kepribadian': return 'Kepribadian';
         case 'logika': return 'Logika';
-        case 'copywriting': return 'Copywriting';
+        case 'copywriting': return 'Kemampuan Verbal';
         case 'kreativitas': return 'Kreativitas';
-        case 'analisa_data': return 'Analisa Data';
+        case 'analisa_data': return 'Kemampuan Numerik';
         default: return 'Ujian';
       }
     }
