@@ -522,3 +522,10 @@ td, th {
     padding: 0 !important;
   }
 }
+
+/* Sidebar collapsed state on desktop */
+@media (min-width: 992px) {
+  .sidebar-collapsed .admin-sidebar {
+    display: none !important;
+  }
+}
