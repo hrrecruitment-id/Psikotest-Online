@@ -46,7 +46,7 @@
   {
     "id": "K05",
     "category": "kepribadian",
-    "question": "Dalam situasi kerja kelompok di lingkungan startup yang serba cepat, peran apa yang paling nyaman bagi Anda?",
+    "question": "Dalam situasi kerja kelompok di lingkungan kerja yang serba cepat, peran apa yang paling nyaman bagi Anda?",
     "options": [
       { "text": "Menjadi koordinator yang membagi tugas, memantau kemajuan, dan menjaga semangat tim.", "score": 10 },
       { "text": "Menjadi eksekutor yang fokus menyelesaikan tugas spesifik saya dengan kualitas tinggi.", "score": 8 },
@@ -79,7 +79,7 @@
   {
     "id": "K08",
     "category": "kepribadian",
-    "question": "Bagaimana Anda menanggapi perubahan strategi bisnis startup yang mendadak dan mengharuskan Anda mempelajari skill baru?",
+    "question": "Bagaimana Anda menanggapi perubahan strategi bisnis perusahaan yang mendadak dan mengharuskan Anda mempelajari skill baru?",
     "options": [
       { "text": "Antusias menyambut perubahan dan segera mencari sumber belajar untuk menguasai skill tersebut.", "score": 10 },
       { "text": "Menerima perubahan tersebut secara logis dan bersedia belajar jika difasilitasi oleh perusahaan.", "score": 8 },
@@ -90,7 +90,7 @@
   {
     "id": "K09",
     "category": "kepribadian",
-    "question": "Saat Anda merasa jenuh atau stres berat karena beban kerja yang tinggi di startup, apa yang Anda lakukan?",
+    "question": "Saat Anda merasa jenuh atau stres berat karena beban kerja yang tinggi, apa yang Anda lakukan?",
     "options": [
       { "text": "Melakukan teknik manajemen stres (istirahat sejenak, olahraga) lalu menyusun ulang rencana kerja saya.", "score": 10 },
       { "text": "Bercerita dan berdiskusi dengan atasan mengenai beban kerja untuk mencari solusi bersama.", "score": 8 },
@@ -232,361 +232,361 @@
   {
     "id": "C01",
     "category": "copywriting",
-    "question": "Manakah pilihan headline berikut yang paling menarik perhatian pembaca untuk mempromosikan aplikasi pencatat keuangan startup?",
+    "question": "Padanan kata (Sinonim): ABSOLUT = ...",
     "options": [
-      { "text": "Aplikasi Kami Membantu Anda Mencatat Pengeluaran Anda Setiap Hari.", "score": 0 },
-      { "text": "Dompet Bocor Terus? Ini Cara Cerdas Atur Gaji Biar Gak Numpang Lewat!", "score": 10 },
-      { "text": "Fitur-fitur Pencatatan Keuangan di Smartphone Android dan iOS.", "score": 0 },
-      { "text": "Laporan Keuangan Pribadi: Teori dan Praktek Pencatatan Digital.", "score": 0 }
+      { "text": "Mutlak", "score": 10 },
+      { "text": "Nisbi", "score": 0 },
+      { "text": "Ragu", "score": 0 },
+      { "text": "Bebas", "score": 0 }
     ],
-    "correctIndex": 1
+    "correctIndex": 0
   },
   {
     "id": "C02",
     "category": "copywriting",
-    "question": "Dalam rumus penulisan AIDA, apa kepanjangan dari huruf 'A' yang pertama?",
+    "question": "Lawan kata (Antonim): PROLOG >< ...",
     "options": [
-      { "text": "Agreement", "score": 0 },
-      { "text": "Attention", "score": 10 },
-      { "text": "Action", "score": 0 },
-      { "text": "Analysis", "score": 0 }
+      { "text": "Monolog", "score": 0 },
+      { "text": "Epilog", "score": 10 },
+      { "text": "Dialog", "score": 0 },
+      { "text": "Analog", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "C03",
     "category": "copywriting",
-    "question": "Manakah kalimat Call to Action (CTA) yang paling efektif menciptakan rasa urgensi (scarcity/urgency)?",
+    "question": "Padanan hubungan (Analogi): MOBIL : BENSIN = PELARI : ...",
     "options": [
-      { "text": "Silakan daftarkan diri Anda kapan saja Anda sempat.", "score": 0 },
-      { "text": "Klik di sini untuk membaca informasi lebih lanjut.", "score": 0 },
-      { "text": "Daftar Sekarang! Diskon 50% Hanya untuk 10 Pendaftar Pertama Hari Ini.", "score": 10 },
-      { "text": "Kami menyediakan konsultasi gratis setiap hari kerja.", "score": 0 }
+      { "text": "Sepatu", "score": 0 },
+      { "text": "Lintasan", "score": 0 },
+      { "text": "Makanan", "score": 10 },
+      { "text": "Podium", "score": 0 }
     ],
     "correctIndex": 2
   },
   {
     "id": "C04",
     "category": "copywriting",
-    "question": "Saat menulis caption media sosial untuk target audiens Gen Z, gaya bahasa mana yang paling direkomendasikan?",
+    "question": "Pilihlah penulisan kata yang baku menurut KBBI:",
     "options": [
-      { "text": "Sangat formal, kaku, menggunakan ejaan bahasa Indonesia baku secara ketat.", "score": 0 },
-      { "text": "Santai, menggunakan bahasa gaul (slang) yang relevan, interaktif, dan to the point.", "score": 10 },
-      { "text": "Bahasa akademis ilmiah populer dengan sitasi riset mendalam.", "score": 0 },
-      { "text": "Bahasa puitis melankolis dengan kalimat-kalimat panjang puitis.", "score": 0 }
+      { "text": "Apotik, Analisa, Jadual", "score": 0 },
+      { "text": "Apotek, Analisis, Jadwal", "score": 10 },
+      { "text": "Apotek, Analisa, Jadwal", "score": 0 },
+      { "text": "Apotik, Analisis, Jadual", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "C05",
     "category": "copywriting",
-    "question": "Apa fungsi utama dari subheadline (subjudul) dalam sebuah halaman arahan (landing page)?",
+    "question": "Kalimat manakah yang merupakan kalimat efektif dan baku?",
     "options": [
-      { "text": "Hanya sebagai elemen pemanis agar desain tidak terlihat kosong.", "score": 0 },
-      { "text": "Memperjelas dan memperkuat pesan utama dari headline utama serta menahan minat pembaca.", "score": 10 },
-      { "text": "Menggantikan seluruh teks penjelasan produk di halaman tersebut.", "score": 0 },
-      { "text": "Menuliskan daftar harga produk secara detail dan rinci.", "score": 0 }
+      { "text": "Bagi para peserta ujian diharapkan tenang.", "score": 0 },
+      { "text": "Para peserta ujian diharapkan tenang.", "score": 10 },
+      { "text": "Peserta ujian-ujian diharapkan tenang.", "score": 0 },
+      { "text": "Untuk para peserta ujian diharapkan agar tenang.", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "C06",
     "category": "copywriting",
-    "question": "Dalam dunia copywriting, apa yang dimaksud dengan istilah 'Pain Point'?",
+    "question": "BONAFIDE berarti...",
     "options": [
-      { "text": "Masalah utama atau frustrasi yang dihadapi target konsumen yang dapat diselesaikan oleh produk Anda.", "score": 10 },
-      { "text": "Titik kelemahan dalam algoritma periklanan media sosial.", "score": 0 },
-      { "text": "Kesalahan pengetikan (typo) yang fatal dalam suatu brosur.", "score": 0 },
-      { "text": "Harga terendah yang bersedia dibayar oleh calon pelanggan.", "score": 0 }
+      { "text": "Dapat dipercaya dengan baik / jujur", "score": 10 },
+      { "text": "Memiliki keuntungan finansial besar", "score": 0 },
+      { "text": "Bersifat sementara atau tidak tetap", "score": 0 },
+      { "text": "Surat keterangan kelakuan baik", "score": 0 }
     ],
     "correctIndex": 0
   },
   {
     "id": "C07",
     "category": "copywriting",
-    "question": "Manakah yang merupakan contoh penerapan teknik 'Social Proof' dalam penulisan copywriting?",
+    "question": "Padanan hubungan (Analogi): SENDOK : MAKAN = PENA : ...",
     "options": [
-      { "text": "Deskripsi spesifikasi teknis prosesor dan kapasitas RAM sebuah laptop.", "score": 0 },
-      { "text": "Daftar kebijakan pengembalian barang dalam 7 hari kerja.", "score": 0 },
-      { "text": "Menampilkan testimoni pelanggan: 'Lebih dari 10.000+ UMKM telah terbantu menaikkan omzet mereka!'", "score": 10 },
-      { "text": "Pemberitahuan masa garansi suku cadang selama satu tahun.", "score": 0 }
+      { "text": "Tinta", "score": 0 },
+      { "text": "Kertas", "score": 0 },
+      { "text": "Menulis", "score": 10 },
+      { "text": "Buku", "score": 0 }
     ],
     "correctIndex": 2
   },
   {
     "id": "C08",
     "category": "copywriting",
-    "question": "Metode penulisan PAS (Problem - Agitate - Solve) sering digunakan. Apa yang dimaksud dengan tahap 'Agitate'?",
+    "question": "Manakah kata yang tidak sejajar kelompoknya dengan kata lainnya?",
     "options": [
-      { "text": "Menawarkan solusi instan dengan memberikan potongan harga diskon besar-besaran.", "score": 0 },
-      { "text": "Menguji coba kegunaan produk sebelum resmi diluncurkan ke pasar luas.", "score": 0 },
-      { "text": "Memperdalam emosi pembaca dengan menekankan dampak buruk jika masalah mereka dibiarkan.", "score": 10 },
-      { "text": "Mengabaikan masalah yang ada dan langsung fokus pada spesifikasi teknis barang.", "score": 0 }
+      { "text": "Sawi", "score": 0 },
+      { "text": "Bayam", "score": 0 },
+      { "text": "Apel", "score": 10 },
+      { "text": "Kangkung", "score": 0 }
     ],
     "correctIndex": 2
   },
   {
     "id": "C09",
     "category": "copywriting",
-    "question": "Saat mempromosikan produk kecantikan organik, manakah pesan yang lebih fokus pada 'Benefit' (manfaat) daripada sekadar 'Feature' (fitur)?",
+    "question": "Sinonim dari kata TENTATIF adalah...",
     "options": [
-      { "text": "Mengandung ekstrak lidah buaya murni sebanyak 95% dari kebun organik tersertifikasi.", "score": 0 },
-      { "text": "Kemasan botol plastik PET berukuran 100 ml dengan penutup ulir rapat.", "score": 0 },
-      { "text": "Dibuat dengan teknologi ekstraksi dingin tanpa bahan pengawet buatan.", "score": 0 },
-      { "text": "Wajah terasa lebih segar dan cerah bercahaya hanya dalam waktu 7 hari pemakaian rutin.", "score": 10 }
+      { "text": "Pasti", "score": 0 },
+      { "text": "Kekal", "score": 0 },
+      { "text": "Sementara / belum pasti", "score": 10 },
+      { "text": "Terjadwal", "score": 0 }
     ],
-    "correctIndex": 3
+    "correctIndex": 2
   },
   {
     "id": "C10",
     "category": "copywriting",
-    "question": "Mengapa pengujian varian teks iklan (A/B Testing) sangat penting dalam proses digital copywriting?",
+    "question": "Antonim dari kata SKEPTIS adalah...",
     "options": [
-      { "text": "Untuk mengetahui variasi kata atau sudut pandang pesan mana yang menghasilkan konversi/klik tertinggi.", "score": 10 },
-      { "text": "Hanya untuk memenuhi kuota tugas harian sebagai copywriter di agensi.", "score": 0 },
-      { "text": "Agar iklan terlihat lebih artistik dan memiliki banyak warna di media sosial.", "score": 0 },
-      { "text": "Guna menyamarkan identitas asli pengiklan dari algoritma pencarian bot.", "score": 0 }
-    ],
-    "correctIndex": 0
-  },
-  {
-    "id": "R01",
-    "category": "kreativitas",
-    "question": "Sebuah botol kaca kosong diletakkan di atas meja. Selain sebagai wadah penyimpanan air, fungsi kreatif manakah yang paling mungkin diwujudkan?",
-    "options": [
-      { "text": "Alat pengukur suhu ruangan digital.", "score": 0 },
-      { "text": "Lampu meja estetik dengan memasukkan lampu kawat LED ke dalamnya.", "score": 10 },
-      { "text": "Bahan bakar kompor pengganti gas minyak bumi.", "score": 0 },
-      { "text": "Alat pemotong kayu keras serbaguna.", "score": 0 }
+      { "text": "Ragu", "score": 0 },
+      { "text": "Yakin / optimis", "score": 10 },
+      { "text": "Curiga", "score": 0 },
+      { "text": "Pasif", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
+    "id": "R01",
+    "category": "kreativitas",
+    "question": "Anda memiliki seutas tali sepanjang 1 meter dan sebuah lilin. Bagaimana cara paling inovatif mengukur waktu 45 menit jika lilin tersebut habis terbakar dalam 1 jam secara merata?",
+    "options": [
+      { "text": "Membakar lilin dari kedua ujungnya sekaligus (mengukur 30 menit), lalu memotong lilin sisa dan membakarnya dari kedua ujung lagi.", "score": 10 },
+      { "text": "Menebak-nebak sisa panjang lilin dengan penggaris seiring waktu berjalan.", "score": 5 },
+      { "text": "Memotong lilin menjadi dua bagian sama panjang menggunakan perkiraan mata saja.", "score": 6 },
+      { "text": "Menunggu lilin habis terbakar sambil melihat jam dinding secara berkala.", "score": 2 }
+    ],
+    "correctIndex": 0
+  },
+  {
     "id": "R02",
     "category": "kreativitas",
-    "question": "Teknik 'Brainstorming' SCAMPER sering digunakan untuk memodifikasi produk. Huruf 'S' pada SCAMPER merujuk pada kata...",
+    "question": "Ketika merancang suatu solusi masalah (design thinking), tahap pencarian ide alternatif sebanyak-banyaknya disebut...",
     "options": [
-      { "text": "Substitute (Mengganti komponen/bagian produk dengan hal lain)", "score": 10 },
-      { "text": "Simplify (Menyederhanakan tampilan antarmuka visual)", "score": 0 },
-      { "text": "Systemize (Membuat alur kerja menjadi sistematis)", "score": 0 },
-      { "text": "Structure (Mengubah struktur organisasi perusahaan)", "score": 0 }
+      { "text": "Ideation (Ideasi)", "score": 10 },
+      { "text": "Prototype (Prototipe)", "score": 0 },
+      { "text": "Testing (Pengujian)", "score": 0 },
+      { "text": "Empathize (Empati)", "score": 0 }
     ],
     "correctIndex": 0
   },
   {
     "id": "R03",
     "category": "kreativitas",
-    "question": "Di bawah ini, manakah yang merupakan ciri utama dari cara berpikir divergen (divergent thinking)?",
+    "question": "Ciri utama orang dengan pola pikir kreatif tinggi ketika memecahkan masalah sehari-hari adalah...",
     "options": [
-      { "text": "Mencari satu jawaban yang paling benar dan logis secara konvensional.", "score": 0 },
-      { "text": "Menghasilkan sebanyak-banyaknya ide alternatif yang unik dan bervariasi dari satu stimulus.", "score": 10 },
-      { "text": "Menghafal rumus-rumus fisika secara berurutan sesuai buku teks.", "score": 0 },
-      { "text": "Menganalisis kesalahan laporan keuangan bulanan secara mekanis.", "score": 0 }
+      { "text": "Selalu mengikuti cara lama yang sudah terbukti aman dan tidak menanggung resiko kegagalan.", "score": 2 },
+      { "text": "Mencoba menghubungkan konsep-konsep yang tidak saling berhubungan menjadi gagasan baru yang bermanfaat.", "score": 10 },
+      { "text": "Menyerahkan masalah kepada orang lain yang dianggap lebih berpengalaman.", "score": 4 },
+      { "text": "Menunggu instruksi rinci sebelum melangkah melakukan tindakan apa pun.", "score": 2 }
     ],
     "correctIndex": 1
   },
   {
     "id": "R04",
     "category": "kreativitas",
-    "question": "Jika Anda harus membuat kampanye viral startup jasa laundry kiloan tanpa budget iklan besar, ide mana yang paling kreatif?",
+    "question": "Jika Anda diberikan tugas membuat produk daur ulang dari tumpukan botol plastik bekas di kantor, produk mana yang paling inovatif dan bernilai guna tinggi?",
     "options": [
-      { "text": "Membagikan brosur kertas fotokopian di lampu merah terdekat setiap pagi.", "score": 0 },
-      { "text": "Memasang spanduk besar berisi tulisan rahasia unik seperti 'Kami Tidak Cuci Baju Kotor, Tapi Menyelamatkan Waktu Liburmu' yang memicu rasa penasaran.", "score": 10 },
-      { "text": "Menelepon calon pelanggan satu per satu dari daftar buku telepon kuning.", "score": 0 },
-      { "text": "Menunggu pelanggan datang dengan sendirinya sembari merapikan rak deterjen.", "score": 0 }
+      { "text": "Tempat sampah biasa", "score": 4 },
+      { "text": "Pot tanaman gantung dengan sistem penyiraman otomatis mandiri memanfaatkan gravitasi dan kapilaritas.", "score": 10 },
+      { "text": "Hiasan meja sederhana dengan memotong leher botol saja.", "score": 6 },
+      { "text": "Menjualnya langsung ke pengepul barang bekas tanpa diolah.", "score": 2 }
     ],
     "correctIndex": 1
   },
   {
     "id": "R05",
     "category": "kreativitas",
-    "question": "Bagaimana Anda memecahkan masalah ketika metode standar yang diajarkan perusahaan gagal menyelesaikan keluhan pelanggan unik?",
+    "question": "Bagaimana sikap terbaik ketika solusi alternatif yang Anda rancang dengan sangat kreatif ternyata gagal saat dicoba?",
     "options": [
-      { "text": "Menolak melayani pelanggan tersebut karena kasusnya tidak terdaftar dalam manual kerja.", "score": 0 },
-      { "text": "Membuat analogi masalah pelanggan dengan kasus industri lain dan memodifikasi solusi secara berani namun aman.", "score": 10 },
-      { "text": "Meminta pelanggan untuk mengabaikan saja masalahnya karena sistem tidak mendukung.", "score": 0 },
-      { "text": "Menunggu rapat evaluasi bulanan berikutnya untuk menanyakan jalan keluarnya.", "score": 0 }
+      { "text": "Menghentikan proyek dan menganggap diri tidak berbakat kreatif.", "score": 2 },
+      { "text": "Menganalisis penyebab kegagalan, mengambil pelajaran, dan merumuskan ide perbaikan baru.", "score": 10 },
+      { "text": "Menyalahkan rekan kerja yang menguji solusi tersebut.", "score": 2 },
+      { "text": "Kembali ke cara konvensional sepenuhnya tanpa mencoba ide baru lagi.", "score": 5 }
     ],
     "correctIndex": 1
   },
   {
     "id": "R06",
     "category": "kreativitas",
-    "question": "Dalam berkolaborasi membuat konten kreatif media sosial, tim mengalami 'writer's block' (buntu ide). Metode apa yang paling cepat memicu kreativitas kembali?",
+    "question": "Untuk merangsang kreativitas berpikir luar kotak (out of the box) saat diskusi kelompok yang jenuh, teknik manakah yang tepat?",
     "options": [
-      { "text": "Memaksa tim tetap duduk dan berdiam diri di meja hingga ada ide keluar secara acak.", "score": 0 },
-      { "text": "Melakukan 'Crazy Eights' (menggambar cepat 8 ide berbeda dalam 8 menit secara bebas).", "score": 10 },
-      { "text": "Menyalin secara utuh konten kompetitor terdekat tanpa modifikasi apapun.", "score": 0 },
-      { "text": "Membatalkan rencana postingan konten minggu tersebut agar tidak pusing.", "score": 0 }
+      { "text": "Teknik bercurah pendapat secara bebas tanpa dihakimi kritikan di awal sesi (Brainstorming).", "score": 10 },
+      { "text": "Membaca ulang buku instruksi teknis secara kaku.", "score": 2 },
+      { "text": "Membiarkan rapat berlangsung hening selama satu jam.", "score": 2 },
+      { "text": "Menunjuk satu orang saja untuk memikirkan semua ide.", "score": 2 }
     ],
-    "correctIndex": 1
+    "correctIndex": 0
   },
   {
     "id": "R07",
     "category": "kreativitas",
-    "question": "Manakah dari kombinasi warna berikut yang memberikan kesan modern, kreatif, sekaligus energik untuk logo aplikasi startup Gen-Z?",
+    "question": "Manakah kombinasi berikut yang mencerminkan paduan kreativitas fungsional tinggi pada alat dapur?",
     "options": [
-      { "text": "Hitam polos dan abu-abu gelap.", "score": 0 },
-      { "text": "Kombinasi ungu neon (violet) dan kuning jeruk (orange) terang.", "score": 10 },
-      { "text": "Coklat tanah liat dan hijau rumput kusam.", "score": 0 },
-      { "text": "Putih bersih dengan font abu-abu sangat muda.", "score": 0 }
+      { "text": "Gelas kaca bening tanpa gagang.", "score": 4 },
+      { "text": "Talenan potong yang terintegrasi langsung dengan wadah penampung sampah sisa potongan di bawahnya.", "score": 10 },
+      { "text": "Piring melamin bundar warna putih biasa.", "score": 4 },
+      { "text": "Garpu makan dengan gagang logam polos.", "score": 4 }
     ],
     "correctIndex": 1
   },
   {
     "id": "R08",
     "category": "kreativitas",
-    "question": "Sebuah restoran makanan sehat ingin menaikkan pesanan salad sayur di kalangan anak sekolah. Cara penyajian mana yang paling kreatif?",
+    "question": "Mengapa kemampuan berpikir visual (seperti menggambar sketsa ide) sangat penting dalam pemecahan masalah kreatif?",
     "options": [
-      { "text": "Membungkus sayur dalam plastik bening ikat karet gelang biasa.", "score": 0 },
-      { "text": "Membuat 'DIY Salad Shaker Box' di mana anak bisa mencampur dan mengocok saladnya sendiri dengan saus warna-warni sehat.", "score": 10 },
-      { "text": "Memberikan potongan harga langsung sebesar 500 rupiah.", "score": 0 },
-      { "text": "Menulis nama-nama ilmiah sayuran di papan tulis restoran.", "score": 0 }
+      { "text": "Membantu menjabarkan ide yang abstrak menjadi bentuk konkret yang mudah dipahami dan dikembangkan bersama tim.", "score": 10 },
+      { "text": "Menunjukkan bahwa kita memiliki bakat melukis yang indah.", "score": 0 },
+      { "text": "Menghindari tugas menulis laporan yang panjang dan melelahkan.", "score": 0 },
+      { "text": "Hanya sebagai hiburan di sela-sela waktu kerja yang senggang.", "score": 2 }
     ],
-    "correctIndex": 1
+    "correctIndex": 0
   },
   {
     "id": "R09",
     "category": "kreativitas",
-    "question": "Apa definisi dari 'Lateral Thinking' (berpikir lateral) yang dikemukakan oleh Edward de Bono?",
+    "question": "Berpikir kreatif sering kali melibatkan kemampuan melihat hubungan baru. Apa kegunaan utama dari metode Mind Mapping?",
     "options": [
-      { "text": "Menyelesaikan masalah dengan pola logika lurus dari langkah A ke B ke C.", "score": 0 },
-      { "text": "Menyelesaikan masalah melalui pendekatan tidak langsung dan kreatif, melihat dari sudut pandang yang tidak biasa.", "score": 10 },
-      { "text": "Mengingat data statistik penjualan tahunan dengan cepat di luar kepala.", "score": 0 },
-      { "text": "Melakukan perhitungan matematika rumit tanpa alat bantu kalkulator.", "score": 0 }
+      { "text": "Menghafal angka-angka statistik penjualan bulanan.", "score": 0 },
+      { "text": "Memetakan ide secara visual untuk melihat hubungan antarkonsep dan mengembangkan gagasan baru.", "score": 10 },
+      { "text": "Menghitung anggaran biaya pengeluaran proyek secara teliti.", "score": 0 },
+      { "text": "Menilai performa kinerja kedisiplinan kerja tim.", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "R10",
     "category": "kreativitas",
-    "question": "Mengapa batasan (constraints), seperti durasi video pendek maksimal 15 detik, terkadang justru memicu kreativitas pembuat konten?",
+    "question": "Apa makna ungkapan 'Constraints breed creativity' (batasan memicu kreativitas)?",
     "options": [
-      { "text": "Memaksa pembuat konten memotong pesan secara sembarangan hingga membingungkan.", "score": 0 },
-      { "text": "Mendorong pembuat konten untuk memikirkan hook instan dan menyampaikan inti pesan secara padat dan visual.", "score": 10 },
-      { "text": "Menghilangkan kebutuhan akan penyuntingan (editing) video sama sekali.", "score": 0 },
-      { "text": "Membuat pembuat konten tidak perlu memikirkan naskah/skrip video.", "score": 0 }
+      { "text": "Batasan membuat kita tidak bisa berbuat apa-apa dan merusak motivasi.", "score": 2 },
+      { "text": "Ketiadaan sumber daya yang melimpah memaksa kita berpikir cerdik mencari alternatif yang tidak biasa.", "score": 10 },
+      { "text": "Batasan selalu mempermudah penyelesaian masalah secara instan.", "score": 0 },
+      { "text": "Kreativitas hanya bisa muncul jika tidak ada batasan sama sekali.", "score": 2 }
     ],
     "correctIndex": 1
   },
   {
     "id": "A01",
     "category": "analisa_data",
-    "question": "Jika penjualan bulanan startup Anda meningkat dari 200 juta rupiah menjadi 250 juta rupiah, berapa persentase peningkatan penjualannya?",
+    "question": "Jika suatu barang seharga Rp 80.000 diskon 15%, berapakah harga yang harus dibayar?",
     "options": [
-      { "text": "20%", "score": 0 },
-      { "text": "25%", "score": 10 },
-      { "text": "50%", "score": 0 },
-      { "text": "30%", "score": 0 }
+      { "text": "Rp 68.000", "score": 10 },
+      { "text": "Rp 72.000", "score": 0 },
+      { "text": "Rp 65.000", "score": 0 },
+      { "text": "Rp 70.000", "score": 0 }
     ],
-    "correctIndex": 1
+    "correctIndex": 0
   },
   {
     "id": "A02",
     "category": "analisa_data",
-    "question": "Sebuah kampanye iklan berbayar menghabiskan biaya Rp 1.000.000 dan menghasilkan 50 konversi pendaftaran. Berapa Cost Per Acquisition (CPA) dari kampanye tersebut?",
+    "question": "Selesaikan operasi aritmatika berikut: 12 + 8 x 3 - 6 = ...",
     "options": [
-      { "text": "Rp 50.000", "score": 0 },
-      { "text": "Rp 20.000", "score": 10 },
-      { "text": "Rp 10.000", "score": 0 },
-      { "text": "Rp 2.000", "score": 0 }
+      { "text": "54", "score": 0 },
+      { "text": "30", "score": 10 },
+      { "text": "20", "score": 0 },
+      { "text": "42", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "A03",
     "category": "analisa_data",
-    "question": "Grafik jenis apakah yang paling tepat digunakan untuk menunjukkan tren perkembangan jumlah pengguna aktif bulanan (MAU) sebuah aplikasi dari bulan Januari hingga Desember?",
+    "question": "Sebuah mobil menempuh jarak 120 km dalam waktu 2 jam. Berapakah kecepatan rata-rata mobil tersebut dalam km/jam?",
     "options": [
-      { "text": "Pie Chart (Grafik Lingkaran)", "score": 0 },
-      { "text": "Line Chart (Grafik Garis)", "score": 10 },
-      { "text": "Radar Chart (Grafik Radar)", "score": 0 },
-      { "text": "Treemap Chart", "score": 0 }
+      { "text": "50 km/jam", "score": 0 },
+      { "text": "60 km/jam", "score": 10 },
+      { "text": "70 km/jam", "score": 0 },
+      { "text": "80 km/jam", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "A04",
     "category": "analisa_data",
-    "question": "Dari data nilai ujian matematika berikut: 70, 80, 80, 90, 100. Berapakah nilai Median (nilai tengah) dari data tersebut?",
+    "question": "Jika 3x - 5 = 10, berapakah nilai x?",
     "options": [
-      { "text": "80", "score": 10 },
-      { "text": "84", "score": 0 },
-      { "text": "90", "score": 0 },
-      { "text": "85", "score": 0 }
+      { "text": "5", "score": 10 },
+      { "text": "3", "score": 0 },
+      { "text": "4", "score": 0 },
+      { "text": "6", "score": 0 }
     ],
     "correctIndex": 0
   },
   {
     "id": "A05",
     "category": "analisa_data",
-    "question": "Jika rata-rata nilai dari 4 peserta psikotes adalah 80, dan nilai 3 peserta di antaranya adalah 75, 85, dan 90. Berapakah nilai peserta keempat?",
+    "question": "Jika 5 orang pekerja dapat menyelesaikan sebuah pekerjaan dalam 6 hari, berapa hari yang dibutuhkan jika dikerjakan oleh 10 orang?",
     "options": [
-      { "text": "70", "score": 10 },
-      { "text": "80", "score": 0 },
-      { "text": "75", "score": 0 },
-      { "text": "85", "score": 0 }
+      { "text": "3 hari", "score": 10 },
+      { "text": "4 hari", "score": 0 },
+      { "text": "2 hari", "score": 0 },
+      { "text": "12 hari", "score": 0 }
     ],
     "correctIndex": 0
   },
   {
     "id": "A06",
     "category": "analisa_data",
-    "question": "Apa makna dari rasio konversi (Conversion Rate) sebesar 5% pada sebuah landing page yang dikunjungi 2.000 pengunjung unik?",
+    "question": "Berapakah nilai dari 2/5 dari 250?",
     "options": [
-      { "text": "Sebanyak 5 orang melakukan pembelian/tindakan target.", "score": 0 },
-      { "text": "Sebanyak 100 orang melakukan pembelian/tindakan target.", "score": 10 },
-      { "text": "Landing page tersebut mengalami error sebanyak 5% dari waktu aktif.", "score": 0 },
-      { "text": "Pengunjung rata-rata bertahan selama 5 menit di dalam landing page.", "score": 0 }
+      { "text": "50", "score": 0 },
+      { "text": "100", "score": 10 },
+      { "text": "150", "score": 0 },
+      { "text": "80", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "A07",
     "category": "analisa_data",
-    "question": "Jika biaya operasional bulanan startup adalah Rp 40.000.000 dan margin keuntungan per produk yang terjual adalah Rp 50.000. Berapa unit produk yang harus terjual dalam sebulan agar mencapai Break Even Point (BEP)?",
+    "question": "Tiga bilangan berurutan jumlahnya adalah 45. Berapakah bilangan yang terbesar dari ketiganya?",
     "options": [
-      { "text": "80 unit", "score": 0 },
-      { "text": "800 unit", "score": 10 },
-      { "text": "8.000 unit", "score": 0 },
-      { "text": "400 unit", "score": 0 }
+      { "text": "15", "score": 0 },
+      { "text": "16", "score": 10 },
+      { "text": "14", "score": 0 },
+      { "text": "17", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "A08",
     "category": "analisa_data",
-    "question": "Manakah pernyataan di bawah ini yang menggambarkan hubungan 'korelasi tidak sama dengan sebab-akibat' (correlation does not imply causation)?",
+    "question": "Sebuah bak air berbentuk kubus memiliki panjang rusuk 50 cm. Berapa liter volume bak air tersebut jika terisi penuh? (1 liter = 1000 cm³)",
     "options": [
-      { "text": "Meningkatnya penjualan es krim berkorelasi dengan meningkatnya kasus tenggelam, tetapi makan es krim bukan penyebab tenggelam.", "score": 10 },
-      { "text": "Semakin banyak iklan yang dipasang, pasti penjualan akan berlipat ganda tanpa batas.", "score": 0 },
-      { "text": "Mengurangi harga jual selalu berakibat langsung pada kerugian bersih operasional.", "score": 0 },
-      { "text": "Menambah RAM laptop selalu berbanding lurus dengan peningkatan ketepatan waktu tidur pemiliknya.", "score": 0 }
+      { "text": "125 liter", "score": 10 },
+      { "text": "250 liter", "score": 0 },
+      { "text": "50 liter", "score": 0 },
+      { "text": "12,5 liter", "score": 0 }
     ],
     "correctIndex": 0
   },
   {
     "id": "A09",
     "category": "analisa_data",
-    "question": "Dalam pengolahan spreadsheet (seperti Excel), rumus apakah yang digunakan untuk menjumlahkan seluruh data angka dalam rentang sel tertentu?",
+    "question": "Jika harga 3 buah buku adalah Rp 15.000, berapa harga untuk 12 buah buku?",
     "options": [
-      { "text": "=AVERAGE()", "score": 0 },
-      { "text": "=SUM()", "score": 10 },
-      { "text": "=COUNT()", "score": 0 },
-      { "text": "=MAX()", "score": 0 }
+      { "text": "Rp 45.000", "score": 0 },
+      { "text": "Rp 60.000", "score": 10 },
+      { "text": "Rp 75.000", "score": 0 },
+      { "text": "Rp 50.000", "score": 0 }
     ],
     "correctIndex": 1
   },
   {
     "id": "A10",
     "category": "analisa_data",
-    "question": "Terdapat data churn rate (persentase pelanggan berhenti berlangganan) kuartalan: Q1 = 4%, Q2 = 6%, Q3 = 5%, Q4 = 3%. Kapankah retensi pelanggan berada di titik tertinggi?",
+    "question": "Sebuah koin dilempar sekali. Berapa peluang munculnya sisi gambar?",
     "options": [
-      { "text": "Kuartal 1 (Q1)", "score": 0 },
-      { "text": "Kuartal 2 (Q2)", "score": 0 },
-      { "text": "Kuartal 3 (Q3)", "score": 0 },
-      { "text": "Kuartal 4 (Q4)", "score": 10 }
+      { "text": "1/4", "score": 0 },
+      { "text": "1", "score": 0 },
+      { "text": "1/2", "score": 10 },
+      { "text": "0", "score": 0 }
     ],
-    "correctIndex": 3
+    "correctIndex": 2
   }
 ]
