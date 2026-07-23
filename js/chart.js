@@ -109,7 +109,7 @@ const ChartManager = {
     this.instances['categoryAverages'] = new Chart(canvasCategoryAverages, {
       type: 'bar',
       data: {
-        labels: ['Kepribadian', 'Logika', 'Copywriting', 'Kreativitas', 'Analisa Data'],
+        labels: ['Kepribadian', 'Logika', 'Verbal', 'Kreativitas', 'Numerik'],
         datasets: [{
           label: 'Rata-rata Nilai',
           data: [
@@ -169,7 +169,7 @@ const ChartManager = {
     this.instances[canvasId] = new Chart(canvas, {
       type: 'radar',
       data: {
-        labels: ['Kepribadian', 'Logika', 'Copywriting', 'Kreativitas', 'Analisa Data'],
+        labels: ['Kepribadian', 'Logika', 'Verbal', 'Kreativitas', 'Numerik'],
         datasets: [{
           label: 'Skor Peserta',
           data: [

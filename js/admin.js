@@ -17,10 +17,12 @@ const AdminManager = {
    * Initializes the Dashboard UI
    */
   initDashboard() {
+    this.initSidebarCollapsedState();
     this.loadMetrics();
     this.populateFilterDropdowns();
     this.renderParticipantsTable();
     this.setupDashboardEvents();
+    this.setupCandidateManagementEvents();
     
     // Initial chart draw
     const results = StorageManager.getResults();
@@ -281,22 +283,18 @@ const AdminManager = {
     }
 
     // Build CSV Content. Excel needs BOM \uFEFF to load UTF-8 encoding correctly
-    let csvContent = "\uFEFF";
-    
-    // Headers
+    let csvContent = "data:text/csv;charset=utf-8,";
     const headers = [
-      "No", "ID Peserta", "Nama Lengkap", "Email", "No HP", "Posisi Dilamar", 
-      "Pendidikan", "Domisili", "Tanggal Tes", 
-      "Skor Kepribadian", "Skor Logika", "Skor Copywriting", "Skor Kreativitas", "Skor Analisa Data",
-      "Skor Akhir", "Kategori Hasil"
+      "ID Peserta", "Nama Lengkap", "Email", "No HP", "Posisi Dilamar", 
+      "Pendidikan", "Domisili", "Pengalaman Kerja", "Tanggal Tes",
+      "Skor Kepribadian", "Skor Logika", "Skor Verbal", "Skor Kreativitas", "Skor Numerik",
+      "Nilai Rata-rata", "Rekomendasi Hasil"
     ];
-    csvContent += headers.map(h => `"${h.replace(/"/g, '""')}"`).join(",") + "\n";
+    csvContent += headers.map(h => `"${h}"`).join(",") + "\n";
 
-    // Row parsing
-    filteredData.forEach((item, idx) => {
+    filteredData.forEach(item => {
       const formattedDate = new Date(item.testDate).toLocaleString('id-ID');
       const row = [
-        idx + 1,
         item.id,
         item.name,
         item.email,
@@ -304,6 +302,7 @@ const AdminManager = {
         item.position,
         item.education || "-",
         item.domicile || "-",
+        item.experience || "-",
         formattedDate,
         item.result.scores.kepribadian || 0,
         item.result.scores.logika || 0,
@@ -340,6 +339,7 @@ const AdminManager = {
    * Initializes the candidate detail page (result.html)
    */
   initResultDetail() {
+    this.initSidebarCollapsedState();
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
 
@@ -374,6 +374,7 @@ const AdminManager = {
     this._safeSetText('resEmail', details.email);
     this._safeSetText('resPhone', details.phone);
     this._safeSetText('resPosition', details.position);
+    this._safeSetText('resExperience', details.experience || '-');
     this._safeSetText('resEducation', details.education || '-');
     this._safeSetText('resDomicile', details.domicile || '-');
 
@@ -473,5 +474,356 @@ const AdminManager = {
   _safeSetText(id, text) {
     const el = document.getElementById(id);
     if (el) el.innerText = text;
+  },
+
+  switchTab(tab, scrollToId = null) {
+    const tabDashboard = document.getElementById('tab-dashboard-content');
+    const tabCandidates = document.getElementById('tab-candidates-content');
+    const menuDashboard = document.getElementById('menuDashboard');
+    const menuCandidates = document.getElementById('menuCandidates');
+    const menuParticipants = document.getElementById('menuParticipants');
+
+    if (!tabDashboard || !tabCandidates) return;
+
+    if (tab === 'dashboard') {
+      tabDashboard.style.display = 'block';
+      tabCandidates.style.display = 'none';
+      if (menuDashboard) {
+        if (scrollToId) {
+          menuDashboard.classList.remove('active');
+        } else {
+          menuDashboard.classList.add('active');
+        }
+      }
+      if (menuCandidates) menuCandidates.classList.remove('active');
+      if (menuParticipants) {
+        if (scrollToId) {
+          menuParticipants.classList.add('active');
+        } else {
+          menuParticipants.classList.remove('active');
+        }
+      }
+      // Re-load dashboard items
+      this.loadMetrics();
+      this.renderParticipantsTable();
+
+      // Scroll to target element
+      if (scrollToId) {
+        setTimeout(() => {
+          const el = document.getElementById(scrollToId);
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    } else if (tab === 'candidates') {
+      tabDashboard.style.display = 'none';
+      tabCandidates.style.display = 'block';
+      if (menuDashboard) menuDashboard.classList.remove('active');
+      if (menuCandidates) menuCandidates.classList.add('active');
+      if (menuParticipants) menuParticipants.classList.remove('active');
+      // Render candidate list & positions list
+      this.renderRegisteredCandidates();
+      this.renderPositionsList();
+    }
+  },
+
+  /**
+   * Renders the registered candidate account table list
+   */
+  renderRegisteredCandidates() {
+    const tableBody = document.getElementById('registeredCandidatesTableBody');
+    if (!tableBody) return;
+
+    const candidates = StorageManager.getRegisteredCandidates();
+    tableBody.innerHTML = '';
+
+    if (candidates.length === 0) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="8" class="text-center py-4 text-muted">
+            Belum ada peserta terdaftar. Klik "Daftarkan Peserta" di atas untuk menambahkan.
+          </td>
+        </tr>
+      `;
+      return;
+    }
+
+    candidates.forEach((c, idx) => {
+      let statusBadge = '<span class="badge bg-secondary font-11 rounded-pill px-2 py-1">Belum Ujian</span>';
+      if (c.status === 'active') {
+        statusBadge = '<span class="badge bg-warning text-dark font-11 rounded-pill px-2 py-1">Sedang Ujian</span>';
+      } else if (c.status === 'completed') {
+        statusBadge = '<span class="badge bg-success text-white font-11 rounded-pill px-2 py-1">Selesai Ujian</span>';
+      }
+
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="align-middle">${idx + 1}</td>
+        <td class="align-middle fw-600">${c.name}</td>
+        <td class="align-middle text-muted">${c.email}</td>
+        <td class="align-middle">${c.phone}</td>
+        <td class="align-middle">
+          <div class="fw-600 small">${c.position}</div>
+          <div class="text-secondary small font-11">${c.experience}</div>
+        </td>
+        <td class="align-middle"><code>${c.password}</code></td>
+        <td class="align-middle">${statusBadge}</td>
+        <td class="align-middle text-nowrap text-end">
+          <button class="btn btn-sm btn-outline-danger" onclick="AdminManager.deleteRegisteredCandidate('${c.email}')">
+            <i class="bi bi-trash"></i> Hapus Akun
+          </button>
+        </td>
+      `;
+      tableBody.appendChild(tr);
+    });
+  },
+
+  /**
+   * Generates a random alphanumeric 6-character password
+   */
+  generateRandomPassword() {
+    const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let pass = '';
+    for (let i = 0; i < 6; i++) {
+      pass += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    const input = document.getElementById('regPassword');
+    if (input) input.value = pass;
+  },
+
+  /**
+   * Cleans validation classes and sets random password
+   */
+  onOpenRegisterModal() {
+    const form = document.getElementById('registerCandidateForm');
+    if (form) {
+      form.reset();
+      form.classList.remove('was-validated');
+    }
+    this.generateRandomPassword();
+
+    // Populate positions select dropdown dynamically
+    const positions = StorageManager.getPositions();
+    const selectEl = document.getElementById('regPosition');
+    if (selectEl) {
+      selectEl.innerHTML = '<option value="" disabled selected>Pilih posisi...</option>';
+      positions.forEach(pos => {
+        const opt = document.createElement('option');
+        opt.value = pos;
+        opt.innerText = pos;
+        selectEl.appendChild(opt);
+      });
+    }
+  },
+
+  /**
+   * Sets up events for candidate account CRUD
+   */
+  setupCandidateManagementEvents() {
+    const form = document.getElementById('registerCandidateForm');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      if (!form.checkValidity()) {
+        e.stopPropagation();
+        form.classList.add('was-validated');
+        return;
+      }
+
+      const newCand = {
+        name: document.getElementById('regName').value.trim(),
+        email: document.getElementById('regEmail').value.trim(),
+        phone: document.getElementById('regPhone').value.trim(),
+        position: document.getElementById('regPosition').value,
+        experience: document.getElementById('regExperience').value,
+        password: document.getElementById('regPassword').value,
+        status: 'registered'
+      };
+
+      const success = StorageManager.saveRegisteredCandidate(newCand);
+
+      if (success) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Registrasi Berhasil',
+          text: `Peserta ${newCand.name} berhasil didaftarkan.`,
+          timer: 2000,
+          showConfirmButton: false
+        });
+
+        // Hide Bootstrap modal
+        const modalEl = document.getElementById('registerCandidateModal');
+        const modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (modalInstance) modalInstance.hide();
+
+        // Refresh candidate list
+        this.renderRegisteredCandidates();
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Pendaftaran Gagal',
+          text: 'Email sudah terdaftar untuk ujian!'
+        });
+      }
+    });
+
+    // Setup add position form listener
+    const addPosForm = document.getElementById('addPositionForm');
+    if (addPosForm) {
+      addPosForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = document.getElementById('newPositionName');
+        const posName = input ? input.value.trim() : '';
+        if (!posName) return;
+
+        const success = StorageManager.savePosition(posName);
+        if (success) {
+          input.value = '';
+          Swal.fire({
+            icon: 'success',
+            title: 'Posisi Ditambahkan',
+            text: `Posisi ${posName} berhasil ditambahkan ke sistem.`,
+            timer: 1500,
+            showConfirmButton: false
+          });
+          this.renderPositionsList();
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Gagal',
+            text: 'Posisi sudah terdaftar!'
+          });
+        }
+      });
+    }
+  },
+
+  /**
+   * Prompt confirmation and delete registered candidate account
+   */
+  deleteRegisteredCandidate(email) {
+    Swal.fire({
+      title: 'Hapus Akun Peserta?',
+      text: `Akun dengan email ${email} akan dihapus secara permanen dari sistem.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#EF4444',
+      cancelButtonColor: '#6B7280',
+      confirmButtonText: 'Ya, Hapus!',
+      cancelButtonText: 'Batal'
+    }).then((res) => {
+      if (res.isConfirmed) {
+        StorageManager.deleteRegisteredCandidate(email);
+        Swal.fire({
+          title: 'Terhapus!',
+          text: 'Akun peserta berhasil dihapus.',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false
+        }).then(() => {
+          this.renderRegisteredCandidates();
+        });
+      }
+    });
+  },
+
+  /**
+   * Renders the vacancy positions manager list
+   */
+  renderPositionsList() {
+    const listEl = document.getElementById('positionsManagerList');
+    if (!listEl) return;
+
+    const positions = StorageManager.getPositions();
+    listEl.innerHTML = '';
+
+    if (positions.length === 0) {
+      listEl.innerHTML = '<li class="list-group-item text-center text-muted py-3">Belum ada posisi lowongan.</li>';
+      return;
+    }
+
+    positions.forEach(pos => {
+      const li = document.createElement('li');
+      li.className = 'list-group-item d-flex justify-content-between align-items-center py-2.5';
+      li.innerHTML = `
+        <span class="fw-600">${pos}</span>
+        <button class="btn btn-sm btn-link text-danger p-0 border-0" onclick="AdminManager.deletePosition('${pos}')" style="text-decoration: none;">
+          <i class="bi bi-trash"></i> Hapus
+        </button>
+      `;
+      listEl.appendChild(li);
+    });
+  },
+
+  /**
+   * Delete a vacancy position from the system
+   */
+  deletePosition(posName) {
+    Swal.fire({
+      title: 'Hapus Posisi?',
+      text: `Posisi "${posName}" akan dihapus dari sistem. Peserta yang sudah terdaftar dengan posisi ini tidak akan terhapus.`,
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#EF4444',
+      cancelButtonColor: '#6B7280',
+      confirmButtonText: 'Ya, Hapus!',
+      cancelButtonText: 'Batal'
+    }).then((res) => {
+      if (res.isConfirmed) {
+        StorageManager.deletePosition(posName);
+        Swal.fire({
+          title: 'Terhapus!',
+          text: 'Posisi lowongan berhasil dihapus.',
+          icon: 'success',
+          timer: 1500,
+          showConfirmButton: false
+        }).then(() => {
+          this.renderPositionsList();
+        });
+      }
+    });
+  },
+
+  /**
+   * Toggle the collapsed state of the sidebar on desktop
+   */
+  toggleSidebarDesktop() {
+    const container = document.querySelector('.admin-container');
+    if (!container) return;
+    const isCollapsed = container.classList.toggle('sidebar-collapsed');
+
+    // Update icons on all toggle buttons
+    const icons = ['toggleIconDesktop', 'toggleIconDesktopCandidates', 'toggleIconDesktopResult'];
+    icons.forEach(id => {
+      const el = document.getElementById(id);
+      if (el) {
+        if (isCollapsed) {
+          el.className = 'bi bi-chevron-right';
+        } else {
+          el.className = 'bi bi-chevron-left';
+        }
+      }
+    });
+
+    // Save collapsed state to localStorage
+    localStorage.setItem('web_psikotes_sidebar_collapsed', isCollapsed);
+  },
+
+  /**
+   * Restores the sidebar collapsed state from localStorage
+   */
+  initSidebarCollapsedState() {
+    const collapsed = localStorage.getItem('web_psikotes_sidebar_collapsed') === 'true';
+    if (collapsed) {
+      const container = document.querySelector('.admin-container');
+      if (container) container.classList.add('sidebar-collapsed');
+
+      const icons = ['toggleIconDesktop', 'toggleIconDesktopCandidates', 'toggleIconDesktopResult'];
+      icons.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.className = 'bi bi-chevron-right';
+      });
+    }
   }
 };

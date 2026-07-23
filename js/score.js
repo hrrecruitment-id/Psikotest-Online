@@ -10,7 +10,7 @@ const ScoreManager = {
    * @param {Array} questions Full list of questions
    * @returns {Object} { scores: { kepribadian: X, logika: Y, ... }, totalScore: Z, category: "..." }
    */
-  calculate(answers, questions) {
+  calculate(answers, questions, experience) {
     const categoryTotals = {
       kepribadian: 0,
       logika: 0,
@@ -59,7 +59,7 @@ const ScoreManager = {
        normalizedScores.analisa_data) / 5
     );
 
-    const recommendation = this.getRecommendation(totalScore);
+    const recommendation = this.getRecommendation(totalScore, experience);
 
     return {
       scores: normalizedScores,
@@ -69,14 +69,34 @@ const ScoreManager = {
   },
 
   /**
-   * Maps score to category recommendation
+   * Maps score to category recommendation based on experience
    * @param {number} score 0 - 100
+   * @param {string} experience 
    * @returns {string} Recommendation category
    */
-  getRecommendation(score) {
-    if (score >= 90) return 'Sangat Direkomendasikan';
-    if (score >= 80) return 'Direkomendasikan';
-    if (score >= 70) return 'Dipertimbangkan';
+  getRecommendation(score, experience) {
+    // Dynamic thresholds based on experience level
+    let thresholds = {
+      sangat_rekomendasi: 90,
+      rekomendasi: 80,
+      dipertimbangkan: 70
+    };
+
+    if (experience === 'Fresh Graduate') {
+      thresholds = { sangat_rekomendasi: 80, rekomendasi: 65, dipertimbangkan: 50 };
+    } else if (experience === '1 - 3 Tahun') {
+      thresholds = { sangat_rekomendasi: 85, rekomendasi: 70, dipertimbangkan: 55 };
+    } else if (experience === '3 - 5 Tahun') {
+      thresholds = { sangat_rekomendasi: 90, rekomendasi: 80, dipertimbangkan: 70 };
+    } else if (experience === '5 - 10 Tahun') {
+      thresholds = { sangat_rekomendasi: 92, rekomendasi: 82, dipertimbangkan: 72 };
+    } else if (experience === '> 10 Tahun') {
+      thresholds = { sangat_rekomendasi: 95, rekomendasi: 85, dipertimbangkan: 75 };
+    }
+
+    if (score >= thresholds.sangat_rekomendasi) return 'Sangat Direkomendasikan';
+    if (score >= thresholds.rekomendasi) return 'Direkomendasikan';
+    if (score >= thresholds.dipertimbangkan) return 'Dipertimbangkan';
     return 'Belum Sesuai';
   },
 

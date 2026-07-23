@@ -110,6 +110,11 @@ const PDFManager = {
                 <td style="padding: 5px 0; color: #374151;">${details.education || '-'} / ${details.domicile || '-'}</td>
               </tr>
               <tr>
+                <td style="padding: 5px 0; color: #6b7280; font-weight: 600;">Pengalaman Kerja</td>
+                <td style="padding: 5px 0; color: #6b7280;">:</td>
+                <td style="padding: 5px 0; color: #374151;">${details.experience || '-'}</td>
+              </tr>
+              <tr>
                 <td style="padding: 5px 0; color: #6b7280; font-weight: 600;">Tanggal Ujian</td>
                 <td style="padding: 5px 0; color: #6b7280;">:</td>
                 <td style="padding: 5px 0; color: #374151;">${formattedDate}</td>
@@ -140,7 +145,7 @@ const PDFManager = {
               </tr>
               <tr>
                 <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center;">3</td>
-                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">Copywriting (20%)</td>
+                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">Verbal (20%)</td>
                 <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: 700;">${details.results.scores.copywriting}</td>
               </tr>
               <tr>
@@ -150,7 +155,7 @@ const PDFManager = {
               </tr>
               <tr>
                 <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center;">5</td>
-                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">Analisa Data (20%)</td>
+                <td style="padding: 10px; border: 1px solid #e5e7eb; font-weight: 600;">Numerik (20%)</td>
                 <td style="padding: 10px; border: 1px solid #e5e7eb; text-align: center; font-weight: 700;">${details.results.scores.analisa_data}</td>
               </tr>
             </tbody>
