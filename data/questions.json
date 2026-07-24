@@ -1,0 +1,592 @@
+[
+  {
+    "id": "K01",
+    "category": "kepribadian",
+    "question": "Ketika dihadapkan pada tugas mendadak dengan tenggat waktu yang sangat ketat di sore hari, apa tindakan Anda?",
+    "options": [
+      { "text": "Menerima tugas tersebut dengan senang hati dan segera menyelesaikannya secara fokus dan terorganisir.", "score": 10 },
+      { "text": "Menerimanya dan mencoba menyelesaikannya seadanya terlebih dahulu, lalu memperbaikinya esok hari.", "score": 8 },
+      { "text": "Mengerjakannya sembari mengeluh karena tenggat waktu dirasa tidak masuk akal.", "score": 5 },
+      { "text": "Menolak tugas tersebut secara langsung dan menyarankan agar diberikan kepada rekan kerja lainnya.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K02",
+    "category": "kepribadian",
+    "question": "Bagaimana sikap Anda saat ide atau usulan Anda dalam rapat ditolak oleh tim?",
+    "options": [
+      { "text": "Menerima keputusan tersebut dengan lapang dada dan mendukung ide terpilih demi kepentingan tim.", "score": 10 },
+      { "text": "Mendengarkan kritik yang ada dan mencoba memperbaiki usulan saya agar lebih bisa diterima di masa depan.", "score": 8 },
+      { "text": "Merasa sedikit kecewa, tetapi memilih diam dan tidak berpartisipasi aktif lagi dalam diskusi.", "score": 5 },
+      { "text": "Tetap mempertahankan pendapat saya karena yakin usulan saya adalah yang terbaik.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K03",
+    "category": "kepribadian",
+    "question": "Ketika Anda melihat rekan kerja melakukan kesalahan fatal yang dapat memengaruhi proyek tim, apa yang Anda lakukan?",
+    "options": [
+      { "text": "Mengajaknya berdiskusi secara personal secara sopan untuk mencari solusi bersama sebelum dilaporkan.", "score": 10 },
+      { "text": "Langsung membantu memperbaiki kesalahan tersebut tanpa memberitahu siapa pun agar tidak gaduh.", "score": 8 },
+      { "text": "Melaporkan kesalahan tersebut langsung kepada atasan agar segera ditindaklanjuti.", "score": 5 },
+      { "text": "Membiarkannya saja karena itu adalah tanggung jawab rekan tersebut dan bukan tugas saya.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K04",
+    "category": "kepribadian",
+    "question": "Bagaimana Anda mengelola prioritas kerja ketika memiliki banyak proyek yang tenggat waktunya bersamaan?",
+    "options": [
+      { "text": "Membuat daftar prioritas berdasarkan urgensi dan dampak, lalu menyelesaikannya secara bertahap.", "score": 10 },
+      { "text": "Bekerja lembur setiap hari untuk menyelesaikan semua tugas sekaligus tanpa memprioritaskan.", "score": 8 },
+      { "text": "Mengerjakan tugas yang paling mudah terlebih dahulu tanpa melihat urgensinya.", "score": 5 },
+      { "text": "Menunggu instruksi lebih lanjut dari atasan mengenai tugas mana yang harus diselesaikan dulu.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K05",
+    "category": "kepribadian",
+    "question": "Dalam situasi kerja kelompok di lingkungan kerja yang serba cepat, peran apa yang paling nyaman bagi Anda?",
+    "options": [
+      { "text": "Menjadi koordinator yang membagi tugas, memantau kemajuan, dan menjaga semangat tim.", "score": 10 },
+      { "text": "Menjadi eksekutor yang fokus menyelesaikan tugas spesifik saya dengan kualitas tinggi.", "score": 8 },
+      { "text": "Menjadi pemberi saran atau ide-ide kreatif baru ketika tim mengalami kebuntuan.", "score": 8 },
+      { "text": "Mengikuti arahan tim secara pasif asalkan proyek berjalan lancar.", "score": 4 }
+    ]
+  },
+  {
+    "id": "K06",
+    "category": "kepribadian",
+    "question": "Seberapa sering Anda mencari umpan balik (feedback) atas kinerja kerja Anda?",
+    "options": [
+      { "text": "Secara aktif meminta umpan balik dari atasan dan rekan kerja untuk perbaikan berkelanjutan.", "score": 10 },
+      { "text": "Menerima umpan balik dengan senang hati saat evaluasi kinerja resmi rutin diadakan.", "score": 8 },
+      { "text": "Hanya meminta umpan balik jika merasa ragu dengan hasil kerja saya.", "score": 5 },
+      { "text": "Menghindari umpan balik karena sering merasa cemas atau tersinggung oleh kritik.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K07",
+    "category": "kepribadian",
+    "question": "Jika terjadi konflik personal antara Anda dan rekan kerja satu divisi, langkah apa yang Anda ambil?",
+    "options": [
+      { "text": "Mengajaknya berbicara empat mata secara kepala dingin untuk menyelesaikan kesalahpahaman.", "score": 10 },
+      { "text": "Mencoba bersikap profesional dan fokus pada pekerjaan saja tanpa membahas konflik tersebut.", "score": 8 },
+      { "text": "Minta bantuan pihak ketiga (HR atau atasan) untuk menengahi konflik kami.", "score": 6 },
+      { "text": "Menghindarinya dan sebisa mungkin tidak bekerja sama dengannya lagi.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K08",
+    "category": "kepribadian",
+    "question": "Bagaimana Anda menanggapi perubahan strategi bisnis perusahaan yang mendadak dan mengharuskan Anda mempelajari skill baru?",
+    "options": [
+      { "text": "Antusias menyambut perubahan dan segera mencari sumber belajar untuk menguasai skill tersebut.", "score": 10 },
+      { "text": "Menerima perubahan tersebut secara logis dan bersedia belajar jika difasilitasi oleh perusahaan.", "score": 8 },
+      { "text": "Merasa khawatir karena harus keluar dari zona nyaman, tetapi perlahan mencoba mengikuti.", "score": 5 },
+      { "text": "Memprotes keputusan tersebut karena merasa kemampuan saya yang sekarang sudah cukup.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K09",
+    "category": "kepribadian",
+    "question": "Saat Anda merasa jenuh atau stres berat karena beban kerja yang tinggi, apa yang Anda lakukan?",
+    "options": [
+      { "text": "Melakukan teknik manajemen stres (istirahat sejenak, olahraga) lalu menyusun ulang rencana kerja saya.", "score": 10 },
+      { "text": "Bercerita dan berdiskusi dengan atasan mengenai beban kerja untuk mencari solusi bersama.", "score": 8 },
+      { "text": "Memaksakan diri bekerja terus meskipun produktivitas menurun drastis.", "score": 5 },
+      { "text": "Mengambil izin sakit secara mendadak untuk menghindari pekerjaan beberapa hari.", "score": 2 }
+    ]
+  },
+  {
+    "id": "K10",
+    "category": "kepribadian",
+    "question": "Bagaimana komitmen Anda terhadap integritas kerja, misalnya ketika menemukan celah sistem yang bisa mempercepat tugas Anda secara ilegal?",
+    "options": [
+      { "text": "Melaporkan celah sistem tersebut kepada IT/atasan dan menyelesaikannya dengan cara resmi.", "score": 10 },
+      { "text": "Tidak menggunakan celah tersebut, tetapi juga tidak melaporkannya kepada siapa pun.", "score": 8 },
+      { "text": "Menggunakan celah tersebut sekali saja untuk mengejar tenggat waktu yang sangat mepet.", "score": 4 },
+      { "text": "Memanfaatkan celah tersebut terus-menerus demi meningkatkan performa angka produktivitas saya.", "score": 2 }
+    ]
+  },
+  {
+    "id": "L01",
+    "category": "logika",
+    "question": "Jika semua kucing menyukai ikan, dan 'Manis' adalah seekor kucing. Kesimpulan mana yang mutlak benar?",
+    "options": [
+      { "text": "Manis mungkin menyukai ikan.", "score": 0 },
+      { "text": "Manis menyukai ikan.", "score": 10 },
+      { "text": "Hewan yang menyukai ikan pastilah Manis.", "score": 0 },
+      { "text": "Semua hewan yang menyukai ikan adalah kucing.", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "L02",
+    "category": "logika",
+    "question": "Tentukan angka berikutnya dalam deret: 2, 4, 8, 16, 32, ...",
+    "options": [
+      { "text": "40", "score": 0 },
+      { "text": "48", "score": 0 },
+      { "text": "64", "score": 10 },
+      { "text": "56", "score": 0 }
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "L03",
+    "category": "logika",
+    "question": "Pilihlah padanan hubungan kata yang tepat: PENULIS : BUKU = ...",
+    "options": [
+      { "text": "Komponis : Lagu", "score": 10 },
+      { "text": "Koki : Dapur", "score": 0 },
+      { "text": "Pelukis : Kuas", "score": 0 },
+      { "text": "Guru : Murid", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "L04",
+    "category": "logika",
+    "question": "Jika 'Hari ini hujan' bernilai BENAR, maka 'Hari ini tidak hujan atau esok berawan' bernilai...",
+    "options": [
+      { "text": "Mutlak Salah", "score": 0 },
+      { "text": "Tergantung apakah esok berawan", "score": 10 },
+      { "text": "Mutlak Benar", "score": 0 },
+      { "text": "Tidak dapat ditentukan sama sekali", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "L05",
+    "category": "logika",
+    "question": "Tiga orang sahabat—Andi, Budi, dan Cici—memiliki warna kaos favorit yang berbeda (Merah, Biru, Hijau). Andi tidak suka warna Merah. Budi menyukai warna Hijau. Kaos warna apakah yang disukai Andi?",
+    "options": [
+      { "text": "Merah", "score": 0 },
+      { "text": "Hijau", "score": 0 },
+      { "text": "Biru", "score": 10 },
+      { "text": "Kuning", "score": 0 }
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "L06",
+    "category": "logika",
+    "question": "Tentukan angka berikutnya dalam deret: 3, 5, 9, 17, 33, ...",
+    "options": [
+      { "text": "65", "score": 10 },
+      { "text": "55", "score": 0 },
+      { "text": "49", "score": 0 },
+      { "text": "68", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "L07",
+    "category": "logika",
+    "question": "Semua mahasiswa di universitas X harus mengikuti ospek. Beberapa mahasiswa universitas X adalah atlet berprestasi. Kesimpulan mana yang paling tepat?",
+    "options": [
+      { "text": "Semua atlet berprestasi di Indonesia kuliah di universitas X.", "score": 0 },
+      { "text": "Beberapa atlet berprestasi harus mengikuti ospek.", "score": 10 },
+      { "text": "Semua mahasiswa yang ikut ospek adalah atlet berprestasi.", "score": 0 },
+      { "text": "Atlet berprestasi tidak perlu mengikuti ospek.", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "L08",
+    "category": "logika",
+    "question": "Jika X lebih besar dari Y, dan Y lebih kecil dari Z, manakah pernyataan berikut yang pasti benar?",
+    "options": [
+      { "text": "X lebih besar dari Z", "score": 0 },
+      { "text": "X lebih kecil dari Z", "score": 0 },
+      { "text": "X sama dengan Z", "score": 0 },
+      { "text": "Tidak ada kesimpulan yang pasti tentang hubungan X dan Z", "score": 10 }
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "L09",
+    "category": "logika",
+    "question": "Pilihlah kelanjutan deret huruf berikut: A, C, E, G, ...",
+    "options": [
+      { "text": "H", "score": 0 },
+      { "text": "I", "score": 10 },
+      { "text": "J", "score": 0 },
+      { "text": "K", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "L10",
+    "category": "logika",
+    "question": "Sebuah jam dinding terlambat 10 menit setiap 24 jam. Jika jam tersebut disesuaikan tepat pada pukul 12.00 siang hari Senin, jam tersebut akan menunjukkan pukul berapakah pada pukul 12.00 siang hari Selasa?",
+    "options": [
+      { "text": "11.50 siang", "score": 10 },
+      { "text": "12.10 siang", "score": 0 },
+      { "text": "11.00 siang", "score": 0 },
+      { "text": "12.00 siang", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "C01",
+    "category": "copywriting",
+    "question": "Padanan kata (Sinonim): ABSOLUT = ...",
+    "options": [
+      { "text": "Mutlak", "score": 10 },
+      { "text": "Nisbi", "score": 0 },
+      { "text": "Ragu", "score": 0 },
+      { "text": "Bebas", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "C02",
+    "category": "copywriting",
+    "question": "Lawan kata (Antonim): PROLOG >< ...",
+    "options": [
+      { "text": "Monolog", "score": 0 },
+      { "text": "Epilog", "score": 10 },
+      { "text": "Dialog", "score": 0 },
+      { "text": "Analog", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "C03",
+    "category": "copywriting",
+    "question": "Padanan hubungan (Analogi): MOBIL : BENSIN = PELARI : ...",
+    "options": [
+      { "text": "Sepatu", "score": 0 },
+      { "text": "Lintasan", "score": 0 },
+      { "text": "Makanan", "score": 10 },
+      { "text": "Podium", "score": 0 }
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "C04",
+    "category": "copywriting",
+    "question": "Pilihlah penulisan kata yang baku menurut KBBI:",
+    "options": [
+      { "text": "Apotik, Analisa, Jadual", "score": 0 },
+      { "text": "Apotek, Analisis, Jadwal", "score": 10 },
+      { "text": "Apotek, Analisa, Jadwal", "score": 0 },
+      { "text": "Apotik, Analisis, Jadual", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "C05",
+    "category": "copywriting",
+    "question": "Kalimat manakah yang merupakan kalimat efektif dan baku?",
+    "options": [
+      { "text": "Bagi para peserta ujian diharapkan tenang.", "score": 0 },
+      { "text": "Para peserta ujian diharapkan tenang.", "score": 10 },
+      { "text": "Peserta ujian-ujian diharapkan tenang.", "score": 0 },
+      { "text": "Untuk para peserta ujian diharapkan agar tenang.", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "C06",
+    "category": "copywriting",
+    "question": "BONAFIDE berarti...",
+    "options": [
+      { "text": "Dapat dipercaya dengan baik / jujur", "score": 10 },
+      { "text": "Memiliki keuntungan finansial besar", "score": 0 },
+      { "text": "Bersifat sementara atau tidak tetap", "score": 0 },
+      { "text": "Surat keterangan kelakuan baik", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "C07",
+    "category": "copywriting",
+    "question": "Padanan hubungan (Analogi): SENDOK : MAKAN = PENA : ...",
+    "options": [
+      { "text": "Tinta", "score": 0 },
+      { "text": "Kertas", "score": 0 },
+      { "text": "Menulis", "score": 10 },
+      { "text": "Buku", "score": 0 }
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "C08",
+    "category": "copywriting",
+    "question": "Manakah kata yang tidak sejajar kelompoknya dengan kata lainnya?",
+    "options": [
+      { "text": "Sawi", "score": 0 },
+      { "text": "Bayam", "score": 0 },
+      { "text": "Apel", "score": 10 },
+      { "text": "Kangkung", "score": 0 }
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "C09",
+    "category": "copywriting",
+    "question": "Sinonim dari kata TENTATIF adalah...",
+    "options": [
+      { "text": "Pasti", "score": 0 },
+      { "text": "Kekal", "score": 0 },
+      { "text": "Sementara / belum pasti", "score": 10 },
+      { "text": "Terjadwal", "score": 0 }
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "C10",
+    "category": "copywriting",
+    "question": "Antonim dari kata SKEPTIS adalah...",
+    "options": [
+      { "text": "Ragu", "score": 0 },
+      { "text": "Yakin / optimis", "score": 10 },
+      { "text": "Curiga", "score": 0 },
+      { "text": "Pasif", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "R01",
+    "category": "kreativitas",
+    "question": "Anda memiliki seutas tali sepanjang 1 meter dan sebuah lilin. Bagaimana cara paling inovatif mengukur waktu 45 menit jika lilin tersebut habis terbakar dalam 1 jam secara merata?",
+    "options": [
+      { "text": "Membakar lilin dari kedua ujungnya sekaligus (mengukur 30 menit), lalu memotong lilin sisa dan membakarnya dari kedua ujung lagi.", "score": 10 },
+      { "text": "Menebak-nebak sisa panjang lilin dengan penggaris seiring waktu berjalan.", "score": 5 },
+      { "text": "Memotong lilin menjadi dua bagian sama panjang menggunakan perkiraan mata saja.", "score": 6 },
+      { "text": "Menunggu lilin habis terbakar sambil melihat jam dinding secara berkala.", "score": 2 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "R02",
+    "category": "kreativitas",
+    "question": "Ketika merancang suatu solusi masalah (design thinking), tahap pencarian ide alternatif sebanyak-banyaknya disebut...",
+    "options": [
+      { "text": "Ideation (Ideasi)", "score": 10 },
+      { "text": "Prototype (Prototipe)", "score": 0 },
+      { "text": "Testing (Pengujian)", "score": 0 },
+      { "text": "Empathize (Empati)", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "R03",
+    "category": "kreativitas",
+    "question": "Ciri utama orang dengan pola pikir kreatif tinggi ketika memecahkan masalah sehari-hari adalah...",
+    "options": [
+      { "text": "Selalu mengikuti cara lama yang sudah terbukti aman dan tidak menanggung resiko kegagalan.", "score": 2 },
+      { "text": "Mencoba menghubungkan konsep-konsep yang tidak saling berhubungan menjadi gagasan baru yang bermanfaat.", "score": 10 },
+      { "text": "Menyerahkan masalah kepada orang lain yang dianggap lebih berpengalaman.", "score": 4 },
+      { "text": "Menunggu instruksi rinci sebelum melangkah melakukan tindakan apa pun.", "score": 2 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "R04",
+    "category": "kreativitas",
+    "question": "Jika Anda diberikan tugas membuat produk daur ulang dari tumpukan botol plastik bekas di kantor, produk mana yang paling inovatif dan bernilai guna tinggi?",
+    "options": [
+      { "text": "Tempat sampah biasa", "score": 4 },
+      { "text": "Pot tanaman gantung dengan sistem penyiraman otomatis mandiri memanfaatkan gravitasi dan kapilaritas.", "score": 10 },
+      { "text": "Hiasan meja sederhana dengan memotong leher botol saja.", "score": 6 },
+      { "text": "Menjualnya langsung ke pengepul barang bekas tanpa diolah.", "score": 2 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "R05",
+    "category": "kreativitas",
+    "question": "Bagaimana sikap terbaik ketika solusi alternatif yang Anda rancang dengan sangat kreatif ternyata gagal saat dicoba?",
+    "options": [
+      { "text": "Menghentikan proyek dan menganggap diri tidak berbakat kreatif.", "score": 2 },
+      { "text": "Menganalisis penyebab kegagalan, mengambil pelajaran, dan merumuskan ide perbaikan baru.", "score": 10 },
+      { "text": "Menyalahkan rekan kerja yang menguji solusi tersebut.", "score": 2 },
+      { "text": "Kembali ke cara konvensional sepenuhnya tanpa mencoba ide baru lagi.", "score": 5 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "R06",
+    "category": "kreativitas",
+    "question": "Untuk merangsang kreativitas berpikir luar kotak (out of the box) saat diskusi kelompok yang jenuh, teknik manakah yang tepat?",
+    "options": [
+      { "text": "Teknik bercurah pendapat secara bebas tanpa dihakimi kritikan di awal sesi (Brainstorming).", "score": 10 },
+      { "text": "Membaca ulang buku instruksi teknis secara kaku.", "score": 2 },
+      { "text": "Membiarkan rapat berlangsung hening selama satu jam.", "score": 2 },
+      { "text": "Menunjuk satu orang saja untuk memikirkan semua ide.", "score": 2 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "R07",
+    "category": "kreativitas",
+    "question": "Manakah kombinasi berikut yang mencerminkan paduan kreativitas fungsional tinggi pada alat dapur?",
+    "options": [
+      { "text": "Gelas kaca bening tanpa gagang.", "score": 4 },
+      { "text": "Talenan potong yang terintegrasi langsung dengan wadah penampung sampah sisa potongan di bawahnya.", "score": 10 },
+      { "text": "Piring melamin bundar warna putih biasa.", "score": 4 },
+      { "text": "Garpu makan dengan gagang logam polos.", "score": 4 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "R08",
+    "category": "kreativitas",
+    "question": "Mengapa kemampuan berpikir visual (seperti menggambar sketsa ide) sangat penting dalam pemecahan masalah kreatif?",
+    "options": [
+      { "text": "Membantu menjabarkan ide yang abstrak menjadi bentuk konkret yang mudah dipahami dan dikembangkan bersama tim.", "score": 10 },
+      { "text": "Menunjukkan bahwa kita memiliki bakat melukis yang indah.", "score": 0 },
+      { "text": "Menghindari tugas menulis laporan yang panjang dan melelahkan.", "score": 0 },
+      { "text": "Hanya sebagai hiburan di sela-sela waktu kerja yang senggang.", "score": 2 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "R09",
+    "category": "kreativitas",
+    "question": "Berpikir kreatif sering kali melibatkan kemampuan melihat hubungan baru. Apa kegunaan utama dari metode Mind Mapping?",
+    "options": [
+      { "text": "Menghafal angka-angka statistik penjualan bulanan.", "score": 0 },
+      { "text": "Memetakan ide secara visual untuk melihat hubungan antarkonsep dan mengembangkan gagasan baru.", "score": 10 },
+      { "text": "Menghitung anggaran biaya pengeluaran proyek secara teliti.", "score": 0 },
+      { "text": "Menilai performa kinerja kedisiplinan kerja tim.", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "R10",
+    "category": "kreativitas",
+    "question": "Apa makna ungkapan 'Constraints breed creativity' (batasan memicu kreativitas)?",
+    "options": [
+      { "text": "Batasan membuat kita tidak bisa berbuat apa-apa dan merusak motivasi.", "score": 2 },
+      { "text": "Ketiadaan sumber daya yang melimpah memaksa kita berpikir cerdik mencari alternatif yang tidak biasa.", "score": 10 },
+      { "text": "Batasan selalu mempermudah penyelesaian masalah secara instan.", "score": 0 },
+      { "text": "Kreativitas hanya bisa muncul jika tidak ada batasan sama sekali.", "score": 2 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "A01",
+    "category": "analisa_data",
+    "question": "Jika suatu barang seharga Rp 80.000 diskon 15%, berapakah harga yang harus dibayar?",
+    "options": [
+      { "text": "Rp 68.000", "score": 10 },
+      { "text": "Rp 72.000", "score": 0 },
+      { "text": "Rp 65.000", "score": 0 },
+      { "text": "Rp 70.000", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "A02",
+    "category": "analisa_data",
+    "question": "Selesaikan operasi aritmatika berikut: 12 + 8 x 3 - 6 = ...",
+    "options": [
+      { "text": "54", "score": 0 },
+      { "text": "30", "score": 10 },
+      { "text": "20", "score": 0 },
+      { "text": "42", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "A03",
+    "category": "analisa_data",
+    "question": "Sebuah mobil menempuh jarak 120 km dalam waktu 2 jam. Berapakah kecepatan rata-rata mobil tersebut dalam km/jam?",
+    "options": [
+      { "text": "50 km/jam", "score": 0 },
+      { "text": "60 km/jam", "score": 10 },
+      { "text": "70 km/jam", "score": 0 },
+      { "text": "80 km/jam", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "A04",
+    "category": "analisa_data",
+    "question": "Jika 3x - 5 = 10, berapakah nilai x?",
+    "options": [
+      { "text": "5", "score": 10 },
+      { "text": "3", "score": 0 },
+      { "text": "4", "score": 0 },
+      { "text": "6", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "A05",
+    "category": "analisa_data",
+    "question": "Jika 5 orang pekerja dapat menyelesaikan sebuah pekerjaan dalam 6 hari, berapa hari yang dibutuhkan jika dikerjakan oleh 10 orang?",
+    "options": [
+      { "text": "3 hari", "score": 10 },
+      { "text": "4 hari", "score": 0 },
+      { "text": "2 hari", "score": 0 },
+      { "text": "12 hari", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "A06",
+    "category": "analisa_data",
+    "question": "Berapakah nilai dari 2/5 dari 250?",
+    "options": [
+      { "text": "50", "score": 0 },
+      { "text": "100", "score": 10 },
+      { "text": "150", "score": 0 },
+      { "text": "80", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "A07",
+    "category": "analisa_data",
+    "question": "Tiga bilangan berurutan jumlahnya adalah 45. Berapakah bilangan yang terbesar dari ketiganya?",
+    "options": [
+      { "text": "15", "score": 0 },
+      { "text": "16", "score": 10 },
+      { "text": "14", "score": 0 },
+      { "text": "17", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "A08",
+    "category": "analisa_data",
+    "question": "Sebuah bak air berbentuk kubus memiliki panjang rusuk 50 cm. Berapa liter volume bak air tersebut jika terisi penuh? (1 liter = 1000 cm³)",
+    "options": [
+      { "text": "125 liter", "score": 10 },
+      { "text": "250 liter", "score": 0 },
+      { "text": "50 liter", "score": 0 },
+      { "text": "12,5 liter", "score": 0 }
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "A09",
+    "category": "analisa_data",
+    "question": "Jika harga 3 buah buku adalah Rp 15.000, berapa harga untuk 12 buah buku?",
+    "options": [
+      { "text": "Rp 45.000", "score": 0 },
+      { "text": "Rp 60.000", "score": 10 },
+      { "text": "Rp 75.000", "score": 0 },
+      { "text": "Rp 50.000", "score": 0 }
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "A10",
+    "category": "analisa_data",
+    "question": "Sebuah koin dilempar sekali. Berapa peluang munculnya sisi gambar?",
+    "options": [
+      { "text": "1/4", "score": 0 },
+      { "text": "1", "score": 0 },
+      { "text": "1/2", "score": 10 },
+      { "text": "0", "score": 0 }
+    ],
+    "correctIndex": 2
+  }
+]
