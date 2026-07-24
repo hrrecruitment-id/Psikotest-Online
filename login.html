@@ -114,7 +114,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const form = document.getElementById('loginForm');
 
-      form.addEventListener('submit', (event) => {
+      form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         if (!form.checkValidity()) {
@@ -125,6 +125,13 @@
 
         const email = document.getElementById('email').value.trim();
         const password = document.getElementById('password').value;
+
+        // Perform candidate database sync from n8n if enabled
+        if (StorageManager.n8nConfig.ENABLED) {
+          Loader.show();
+          await StorageManager.syncFromN8N();
+          Loader.hide();
+        }
 
         // Perform candidate login check
         const result = AuthManager.loginCandidate(email, password);

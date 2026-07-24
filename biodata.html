@@ -160,11 +160,18 @@
 
   <!-- Page Specific Logic -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', async () => {
       // Prevent going back to biodata if test has started
       if (sessionStorage.getItem('web_psikotes_test_started') === 'true') {
         window.location.replace('test.html');
         return;
+      }
+
+      // Sync database from n8n if enabled
+      if (StorageManager.n8nConfig.ENABLED) {
+        Loader.show();
+        await StorageManager.syncFromN8N();
+        Loader.hide();
       }
 
       const form = document.getElementById('biodataForm');
