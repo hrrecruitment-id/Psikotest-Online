@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Portal Recruitment</title>
+
+  <!-- CDNs for styles -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+  <!-- Hidden overlay loader -->
+  <div id="app-loader">
+    <div class="loader-spinner">
+      <div class="spinner-border text-primary" role="status"></div>
+      <span class="mt-2 text-primary fw-bold">Memproses Data...</span>
+    </div>
+  </div>
+
+  <div class="admin-container">
+
+    <!-- Mobile Header -->
+    <header class="admin-mobile-header no-print">
+      <span class="logo-text"><span class="logo-accent"><i class="bi bi-rocket-takeoff-fill"></i> SR</span>
+        PORTAL</span>
+      <button class="btn btn-outline-primary" id="btnToggleSidebar">
+        <i class="bi bi-list"></i> Menu
+      </button>
+    </header>
+
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar no-print" id="adminSidebar">
+      <div class="admin-sidebar-header text-center">
+        <a class="logo-text" href="dashboard.html">
+          <span class="logo-accent"><i class="bi bi-rocket-takeoff-fill"></i> HR</span> RECRUITMENT
+        </a>
+      </div>
+
+      <ul class="admin-sidebar-menu flex-grow-1">
+        <li>
+          <a href="dashboard.html" class="nav-link active" id="menuDashboard" onclick="AdminManager.switchTab('dashboard'); return false;">
+            <i class="bi bi-grid-1x2"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" id="menuCandidates" onclick="AdminManager.switchTab('candidates'); return false;">
+            <i class="bi bi-person-gear"></i> Akun Peserta
+          </a>
+        </li>
+        <li>
+          <a href="#participantsCard" class="nav-link" id="menuParticipants" onclick="AdminManager.switchTab('dashboard', 'participantsCard'); return false;">
+            <i class="bi bi-people"></i> Daftar Peserta
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" onclick="AdminManager.exportToExcel(); return false;">
+            <i class="bi bi-file-earmark-excel"></i> Export Excel
+          </a>
+        </li>
+      </ul>
+
+      <!-- Bottom actions in Sidebar -->
+      <div class="border-top pt-3 mt-auto">
+        <!-- Dark Mode Toggle Switch in Sidebar -->
+        <div class="d-flex justify-content-between align-items-center mb-3 px-2">
+          <span class="small text-secondary fw-600"><i class="bi bi-moon-stars"></i> Dark Mode</span>
+          <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="darkModeToggle">
+              <input type="checkbox" id="darkModeToggle" />
+              <div class="slider">
+                <div class="slider-icons">
+                  <i class="bi bi-sun-fill"></i>
+                  <i class="bi bi-moon-stars-fill"></i>
+                </div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <button class="btn btn-danger w-100 py-2.5 rounded-3 fw-bold" onclick="AuthManager.logout()">
+          <i class="bi bi-box-arrow-left me-1"></i> Log Out
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Dashboard Content -->
+    <main class="admin-content">
+
+      <!-- Tab 1: Dashboard Analytics -->
+      <div id="tab-dashboard-content">
+      <div class="d-flex justify-content-between align-items-center mb-4 no-print pb-3 border-bottom">
+        <div class="d-flex align-items-center gap-3">
+          <button class="btn btn-outline-secondary d-none d-lg-inline-block btn-sidebar-toggle-desktop" onclick="AdminManager.toggleSidebarDesktop()">
+            <i class="bi bi-chevron-left" id="toggleIconDesktop"></i>
+          </button>
+          <div>
+            <h1 class="fw-800 h3 mb-1">Assessment Analytics</h1>
+            <p class="text-secondary small mb-0">Overview of candidate evaluations, scores, and statistics.</p>
+          </div>
+        </div>
+        <div class="text-end d-none d-md-block">
+          <span class="badge bg-primary-subtle text-primary fw-600 px-3 py-2 rounded-pill">
+            <i class="bi bi-calendar3 me-1"></i> <span id="currentDateString">22 Juli 2026</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Cards (Row of 4) -->
+      <div class="row g-4 mb-4" data-aos="fade-up">
+        <!-- Total Participants -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="card-modern p-4 d-flex align-items-center">
+            <div
+              class="bg-primary-subtle text-primary p-3 rounded-4 me-3 fs-3 d-flex align-items-center justify-content-center"
+              style="width: 56px; height: 56px;">
+              <i class="bi bi-people-fill"></i>
+            </div>
+            <div>
+              <span class="text-secondary small d-block fw-600">Total Peserta</span>
+              <h3 class="fw-700 mb-0" id="metricTotalParticipants">0</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Average Score -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="card-modern p-4 d-flex align-items-center">
+            <div
+              class="bg-success-subtle text-success p-3 rounded-4 me-3 fs-3 d-flex align-items-center justify-content-center"
+              style="width: 56px; height: 56px;">
+              <i class="bi bi-award-fill"></i>
+            </div>
+            <div>
+              <span class="text-secondary small d-block fw-600">Rata-rata Nilai</span>
+              <h3 class="fw-700 mb-0" id="metricAverageScore">0%</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highest Score -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="card-modern p-4 d-flex align-items-center">
+            <div
+              class="bg-info-subtle text-info p-3 rounded-4 me-3 fs-3 d-flex align-items-center justify-content-center"
+              style="width: 56px; height: 56px;">
+              <i class="bi bi-graph-up"></i>
+            </div>
+            <div>
+              <span class="text-secondary small d-block fw-600">Nilai Tertinggi</span>
+              <h3 class="fw-700 mb-0" id="metricMaxScore">0%</h3>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lowest Score -->
+        <div class="col-xl-3 col-sm-6">
+          <div class="card-modern p-4 d-flex align-items-center">
+            <div
+              class="bg-danger-subtle text-danger p-3 rounded-4 me-3 fs-3 d-flex align-items-center justify-content-center"
+              style="width: 56px; height: 56px;">
+              <i class="bi bi-graph-down"></i>
+            </div>
+            <div>
+              <span class="text-secondary small d-block fw-600">Nilai Terendah</span>
+              <h3 class="fw-700 mb-0" id="metricMinScore">0%</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Layout Row -->
+      <div class="row g-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+        <!-- Distribution Pie Chart Card -->
+        <div class="col-lg-5">
+          <div class="card-modern h-100 p-4">
+            <h4 class="fw-600 mb-3 fs-5">Distribusi Hasil Rekomendasi</h4>
+            <div style="position: relative; height: 260px;">
+              <canvas id="chartDistribution"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Bar Chart Card -->
+        <div class="col-lg-7">
+          <div class="card-modern h-100 p-4">
+            <h4 class="fw-600 mb-3 fs-5">Rata-rata Skor per Bidang Penilaian</h4>
+            <div style="position: relative; height: 260px;">
+              <canvas id="chartCategoryAverages"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Candidates Table Card -->
+      <div class="card-modern p-4 mb-4" id="participantsCard" data-aos="fade-up" data-aos-delay="200">
+
+        <!-- Table Header Panel -->
+        <div class="d-flex flex-wrap justify-content-between align-items-center border-bottom pb-3 mb-3 gap-3">
+          <div>
+            <h4 class="fw-700 mb-1 fs-5">Daftar Hasil Psikotes Peserta</h4>
+            <p class="text-secondary small mb-0">Total list of candidates assessments saved in storage.</p>
+          </div>
+          <div>
+            <button class="btn btn-primary-modern" onclick="AdminManager.exportToExcel()">
+              <i class="bi bi-file-earmark-excel me-1"></i> Export Excel (CSV)
+            </button>
+          </div>
+        </div>
+
+        <!-- Filters section -->
+        <div class="bg-light-subtle p-3 rounded-4 border mb-4">
+          <div class="row g-3">
+            <!-- Search Name -->
+            <div class="col-xl-3 col-md-6">
+              <label for="searchName" class="form-label small fw-600 text-secondary">Cari Peserta</label>
+              <div class="input-group input-group-sm">
+                <span class="input-group-text bg-light text-muted"><i class="bi bi-search"></i></span>
+                <input type="text" class="form-control" id="searchName" placeholder="Ketik nama atau email...">
+              </div>
+            </div>
+
+            <!-- Position Filter -->
+            <div class="col-xl-2 col-md-6">
+              <label for="filterPosition" class="form-label small fw-600 text-secondary">Posisi Jabatan</label>
+              <select class="form-select form-select-sm" id="filterPosition">
+                <option value="">Semua Posisi</option>
+              </select>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="col-xl-2.5 col-md-6">
+              <label for="filterCategory" class="form-label small fw-600 text-secondary">Kategori Hasil</label>
+              <select class="form-select form-select-sm" id="filterCategory">
+                <option value="">Semua Hasil</option>
+                <option value="Sangat Direkomendasikan">Sangat Direkomendasikan</option>
+                <option value="Direkomendasikan">Direkomendasikan</option>
+                <option value="Dipertimbangkan">Dipertimbangkan</option>
+                <option value="Belum Sesuai">Belum Sesuai</option>
+              </select>
+            </div>
+
+            <!-- Date Range Filters -->
+            <div class="col-xl-3.5 col-md-6">
+              <label class="form-label small fw-600 text-secondary">Periode Tanggal Ujian</label>
+              <div class="d-flex align-items-center gap-2">
+                <input type="date" class="form-control form-control-sm" id="filterDateStart">
+                <span class="small text-secondary">-</span>
+                <input type="date" class="form-control form-control-sm" id="filterDateEnd">
+              </div>
+            </div>
+
+            <!-- Reset Button -->
+            <div class="col-md-12 text-end">
+              <button class="btn btn-sm btn-outline-secondary px-3" id="btnResetFilters">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset Filter
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Participants Table Responsive Container -->
+        <div class="table-responsive">
+          <table class="table table-hover table-striped align-middle" style="min-width: 900px;">
+            <thead>
+              <tr>
+                <th style="width: 5%;">No</th>
+                <th style="width: 20%;">Nama Lengkap</th>
+                <th style="width: 15%;">Email</th>
+                <th style="width: 12%;">No HP</th>
+                <th style="width: 15%;">Posisi Dilamar</th>
+                <th style="width: 10%;">Tanggal Tes</th>
+                <th style="width: 8%; text-align: center;">Nilai</th>
+                <th style="width: 15%;">Rekomendasi</th>
+                <th style="width: 15%; text-align: right;" class="no-print">Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="participantsTableBody">
+              <!-- Rendered via admin.js -->
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      </div><!-- End tab-dashboard-content -->
+
+      <!-- Tab 2: Candidate Account Management -->
+      <div id="tab-candidates-content" style="display: none;">
+        <div class="d-flex justify-content-between align-items-center mb-4 no-print pb-3 border-bottom">
+          <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-secondary d-none d-lg-inline-block btn-sidebar-toggle-desktop" onclick="AdminManager.toggleSidebarDesktop()">
+              <i class="bi bi-chevron-left" id="toggleIconDesktopCandidates"></i>
+            </button>
+            <div>
+              <h1 class="fw-800 h3 mb-1">Manajemen Akun Peserta</h1>
+              <p class="text-secondary small mb-0">Daftarkan dan kelola akses login peserta ujian psikotes.</p>
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary-modern" data-bs-toggle="modal" data-bs-target="#registerCandidateModal" onclick="AdminManager.onOpenRegisterModal()">
+              <i class="bi bi-person-plus-fill me-1"></i> Daftarkan Peserta
+            </button>
+          </div>
+        </div>
+
+        <!-- Grid Layout for Candidates & Positions -->
+        <div class="row g-4">
+          <!-- Left: Registered Candidates Table -->
+          <div class="col-lg-8" data-aos="fade-right">
+            <div class="card-modern p-4 mb-4">
+              <h4 class="fw-700 border-bottom pb-2 mb-3 fs-5 color-primary">Daftar Akun Peserta Terdaftar</h4>
+              <div class="table-responsive">
+                <table class="table table-hover table-striped align-middle" style="min-width: 600px;">
+                  <thead>
+                    <tr>
+                      <th style="width: 5%;">No</th>
+                      <th style="width: 25%;">Nama Lengkap</th>
+                      <th style="width: 25%;">Email (Username)</th>
+                      <th style="width: 15%;">No HP / WA</th>
+                      <th style="width: 20%;">Posisi & Pengalaman</th>
+                      <th style="width: 10%;">Password</th>
+                      <th style="width: 10%;">Status</th>
+                      <th style="width: 10%; text-align: right;">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody id="registeredCandidatesTableBody">
+                    <!-- Rendered dynamically via admin.js -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Vacancy Positions Manager -->
+          <div class="col-lg-4" data-aos="fade-left">
+            <div class="card-modern p-4 mb-4">
+              <h4 class="fw-700 border-bottom pb-2 mb-3 fs-5 color-primary">Manajemen Posisi Lowongan</h4>
+              
+              <!-- Add Position Form -->
+              <form id="addPositionForm" class="mb-4">
+                <label for="newPositionName" class="form-label small fw-600 text-secondary">Tambah Posisi Baru</label>
+                <div class="input-group">
+                  <input type="text" class="form-control text-dark-mode-override" id="newPositionName" required placeholder="Contoh: Frontend Engineer">
+                  <button class="btn btn-primary btn-sm" type="submit">Tambah</button>
+                </div>
+              </form>
+
+              <!-- Positions List -->
+              <div class="border rounded-3 overflow-hidden bg-light-subtle">
+                <ul class="list-group list-group-flush" id="positionsManagerList" style="max-height: 300px; overflow-y: auto;">
+                  <!-- Rendered dynamically via admin.js -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!-- End tab-candidates-content -->
+
+    </main>
+
+  <!-- Modal Register Candidate -->
+  <div class="modal fade" id="registerCandidateModal" tabindex="-1" aria-labelledby="registerCandidateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
+        <div class="modal-header bg-primary text-white border-0 py-3">
+          <h5 class="modal-title fw-bold" id="registerCandidateModalLabel">
+            <i class="bi bi-person-plus-fill me-1"></i> Daftarkan Peserta Ujian
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <form id="registerCandidateForm" class="needs-validation" novalidate>
+            <!-- Nama -->
+            <div class="mb-3">
+              <label for="regName" class="form-label fw-600">Nama Lengkap <span class="text-danger">*</span></label>
+              <input type="text" class="form-control text-dark-mode-override" id="regName" required placeholder="Contoh: Rudi Tabuti">
+              <div class="invalid-feedback">Nama lengkap wajib diisi.</div>
+            </div>
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="regEmail" class="form-label fw-600">Email (Username) <span class="text-danger">*</span></label>
+              <input type="email" class="form-control text-dark-mode-override" id="regEmail" required placeholder="name@example.com">
+              <div class="invalid-feedback">Alamat email valid wajib diisi.</div>
+            </div>
+            <!-- WhatsApp -->
+            <div class="mb-3">
+              <label for="regPhone" class="form-label fw-600">No. WhatsApp / HP <span class="text-danger">*</span></label>
+              <input type="tel" class="form-control text-dark-mode-override" id="regPhone" required placeholder="08xxxxxxxxxx">
+              <div class="invalid-feedback">Nomor WhatsApp/HP wajib diisi.</div>
+            </div>
+            <!-- Posisi -->
+            <div class="mb-3">
+              <label for="regPosition" class="form-label fw-600">Posisi Dilamar <span class="text-danger">*</span></label>
+              <select class="form-select text-dark-mode-override" id="regPosition" required>
+                <option value="" disabled selected>Pilih posisi...</option>
+              </select>
+              <div class="invalid-feedback">Posisi wajib dipilih.</div>
+            </div>
+            <!-- Pengalaman -->
+            <div class="mb-3">
+              <label for="regExperience" class="form-label fw-600">Pengalaman Kerja <span class="text-danger">*</span></label>
+              <select class="form-select text-dark-mode-override" id="regExperience" required>
+                <option value="" disabled selected>Pilih pengalaman...</option>
+                <option value="Fresh Graduate">Fresh Graduate</option>
+                <option value="1 - 3 Tahun">1 - 3 Tahun</option>
+                <option value="3 - 5 Tahun">3 - 5 Tahun</option>
+                <option value="5 - 10 Tahun">5 - 10 Tahun</option>
+                <option value="> 10 Tahun">&gt; 10 Tahun</option>
+              </select>
+              <div class="invalid-feedback">Pengalaman kerja wajib dipilih.</div>
+            </div>
+            <!-- Password -->
+            <div class="mb-4">
+              <label for="regPassword" class="form-label fw-600">Password Akun <span class="text-danger">*</span></label>
+              <div class="input-group">
+                <input type="text" class="form-control text-dark-mode-override" id="regPassword" required placeholder="Password login">
+                <button class="btn btn-outline-secondary" type="button" onclick="AdminManager.generateRandomPassword()">
+                  <i class="bi bi-shuffle"></i> Acak
+                </button>
+              </div>
+              <div class="invalid-feedback">Password wajib diisi.</div>
+            </div>
+            
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary-modern py-2.5">
+                Daftarkan Peserta <i class="bi bi-check-circle-fill ms-1"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- Script CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- App scripts -->
+  <script src="../js/auth.js"></script>
+  <script src="../js/storage.js"></script>
+  <script src="../js/score.js"></script>
+  <script src="../js/pdf.js"></script>
+  <script src="../js/chart.js"></script>
+  <script src="../js/admin.js"></script>
+  <script src="../js/main.js"></script>
+
+  <!-- Sidebar and dashboard bootstrap initializer -->
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      // 1. Double check route guard (auth.js run it automatically, but let's confirm)
+      if (!AuthManager.isLoggedIn()) return;
+
+      // Sync database from n8n if enabled
+      if (StorageManager.n8nConfig.ENABLED) {
+        Loader.show();
+        await StorageManager.syncFromN8N();
+        Loader.hide();
+      }
+
+      // 2. Set current date text
+      const dateEl = document.getElementById('currentDateString');
+      if (dateEl) {
+        dateEl.innerText = new Date().toLocaleDateString('id-ID', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        });
+      }
+
+      // 3. Init Dashboard Controller
+      AdminManager.initDashboard();
+
+      // 4. Sidebar Mobile Toggle Control
+      const btnToggle = document.getElementById('btnToggleSidebar');
+      const sidebar = document.getElementById('adminSidebar');
+      if (btnToggle && sidebar) {
+        btnToggle.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+        });
+
+        // Hide sidebar when click outside on mobile
+        document.addEventListener('click', (e) => {
+          if (window.innerWidth < 992 && !sidebar.contains(e.target) && e.target !== btnToggle && !btnToggle.contains(e.target)) {
+            sidebar.classList.remove('active');
+          }
+        });
+      }
+
+      // 5. Setup periodic auto-refresh every 30 seconds
+      if (StorageManager.n8nConfig.ENABLED) {
+        setInterval(async () => {
+          await AdminManager.refreshDashboardData();
+        }, 30000); // 30 detik
+      }
+    });
+  </script>
+</body>
+
+</html>
